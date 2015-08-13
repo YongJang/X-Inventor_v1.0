@@ -17,11 +17,10 @@
 /*simulating board*/
 .sb{
 	width: 350px;
-	height: 100em;
+	height: 85em;
 	color: #ffffff;
 	background-color: #404040;
 	background-attachment: right;
-	border-radius: 5px;
 	overflow: auto;
 }
 
@@ -36,7 +35,7 @@
 	width: 350px;
 	height: 180px;
 	font-weight: bold;
-	border-radius: inherit;
+	border-radius: 7px;
 }
 
 
