@@ -10,14 +10,26 @@
 	display: block;
 }
 
+.board2{
+	color:#ffffff;
+	background-color:#404040;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	margin-bottom: 0px;
+	padding: 10px;
+	background-size: cover;
+	display: block;
+}
+
 .board .putIn{
 	background-color:#808080;
 }
 
 /*simulating board*/
 .sb{
-	width: 350px;
-	height: 70em;
+	width: 75%;
+	height: 75em;
 	color: #ffffff;
 	background-color: #404040;
 	background-attachment: right;
@@ -44,8 +56,8 @@
 
 /*output board*/
 .ob{
-	width: 350px;
-	height: 70em;
+	width: 75%;
+	height: 75em;
 	color: #ffffff;
 	background-color: #404040;
 	background-attachment: right;
