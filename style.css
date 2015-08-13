@@ -16,8 +16,8 @@
 
 /*simulating board*/
 .sb{
-	width: auto;
-	height: auto;
+	width: 200px;
+	height: 100px;
 	color: #ffffff;
 	background: #404040;
 }
