@@ -8,7 +8,7 @@ $(document).ready(function(){
 	}
 	});
 
-	$('.board').droppable({hoverClass:'.putIn', accept:'.item',
+	$('.board').droppable({hoverClass:'putIn', accept:'.item',
 	drop:function(){
 		$('.board').append(contents+'<br />');
 	}
