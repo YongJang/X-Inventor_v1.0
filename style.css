@@ -16,15 +16,17 @@
 
 /*simulating board*/
 .sb{
-	width: 400px;
-	height: 250px;
+	width: 350px;
+	height: 180px;
 	color: #ffffff;
-	background: #404040;
+	background-color: #404040;
+	background-attachment: right;
 }
 
 /*simulating list*/
 .sl{
 	color: #000000;
+	text-align: center;
 	background-color: #f0ad4e;
 	width: inherit;
 	height: inherit;
