@@ -4,7 +4,8 @@ $(document).ready(function(){
 	$('.board').css('height',height);
 	
 	$('.item').draggable({containment:'document', revert:true, start:function(){
-		contents = $(this).text();
+		if($(this)=='.item')
+			contents = $(this).text();
 	}
 	});
 
