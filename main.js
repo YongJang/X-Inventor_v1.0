@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$('.board').css('height',height);
 	
 	$('.item').draggable({containment:'document', revert:true, start:function(){
-		if($(this)=='.item')
+		if($(this)==='.item')
 			contents = $(this).text;
 		else
 			contents = $(this).text+"haha";
