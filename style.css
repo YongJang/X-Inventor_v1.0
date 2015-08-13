@@ -16,11 +16,13 @@
 
 /*simulating board*/
 .sb{
-	width: 350px;
-	height: 70em;
+	width: col-md-3;
+	height: 4em;
 	color: #ffffff;
 	background-color: #404040;
 	background-attachment: right;
+	border-radius: 5px;
+	float: right;
 	overflow: auto;
 }
 
@@ -34,8 +36,10 @@
 	background-color: #f0ad4e;
 	width: inherit;
 	height: 180px;
+	background-size:fixed;
 	font-weight: bold;
-	border-radius: 20px;
+	border-radius: inherit;
+	float: inherit;
 }
 
 
