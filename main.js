@@ -8,13 +8,13 @@ $(document).ready(function(){
 	
 
 	$('.item').draggable({containment:'document', revert:true, start:function(){
-		contents = $(this).id;
+		$contents = $(this).class;
 		}
 	});
 
 	$('.board').droppable({hoverClass:'.putIn', accept:'.item',
 	drop:function(){
-		$('.ib').append('<div class="ol">'+contents+'</div>');
+		$('.ib').append('<div class="ol">'+$contents+'</div>');
 	}
 	});
 
