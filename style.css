@@ -25,17 +25,20 @@
 }
 
 /*simulating list*/
+/*simulating list*/
 .sl{
 	color: #000000;
 	text-align: center;
 	vertical-align: center;
-	padding:auto;
+	padding-top:auto;
+	padding-bottom:auto;
 	background-color: #f0ad4e;
 	width: inherit;
 	height: inherit;
 	font-weight: bold;
 	border-radius: inherit;
 }
+
 
 body{
 	
