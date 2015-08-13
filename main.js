@@ -5,24 +5,14 @@ $(document).ready(function(){
 	
 	
 
-	$('.board').droppable({hoverClass:'.board .putIn', accept:'.item',
+	$('.board').droppable({hoverClass:'.putIn', accept:'.item',
 	drop:function(){
-		$('.sb').append('<div class="sl">'+contents+'</div>');
+		$('.ib').append('<div class="sl">'+contents+'</div>');
 	}
 	});
 
-	$('li').hover(
-    	function(){
-     	 $(this).addClass('item');
-     	 var $id = $(this).id;
- 		},
-   		function(){
-    	  $(this).removeClass('item');
-   		}
-	);
-
 	$('.item').draggable({containment:'document', revert:true, start:function(){
-		contents = $(this).text();
+		contents = $(this).id;
 		}
 	});
 
