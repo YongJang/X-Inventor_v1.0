@@ -36,6 +36,6 @@ $(document).ready(function(){
 
 	$('#simulButton').on('click', function(){
 		var $btn = $(this).button('loading');
-		$btn.button('reset')
+		$btn.button('reset');
 	});
 });
