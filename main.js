@@ -11,17 +11,25 @@ $(document).ready(function(){
 	}
 	});
 
-	$('.item').on('click', function(){
-		$('.item').draggable({containment:'document', revert:true, start:function(){
-		if($class==$(this).class)
-			contents = $(this).text();
-			}
-		});
+	$('li').hover(
+    	function(){
+     	 $(this).addClass('item');
+ 		},
+   		function(){
+    	  $(this).removeClass('item');
+   		}
+	);
 
-		var $class = $(this).class;
+	$('.item').draggable({containment:'document', revert:true, start:function(){
+		contents = $(this).text();
+		}
 	});
 
-	$('#simulButton').on('hover', function(){
+	$('.item').on('hover', function(){
+		var $id = $(this).id;
+	});
+
+	$('#simulButton').on('click', function(){
 		var $btn = $(this).button('loading');
 		$btn.button('reset')
 	});
