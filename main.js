@@ -3,11 +3,7 @@ $(document).ready(function(){
 	var height = $(window).height();
 	$('.board').css('height',height);
 	
-	$('.item').draggable({containment:'document', revert:true, start:function(){
-		if($class==$(this).class)
-			contents = $(this).text();
-	}
-	});
+	
 
 	$('.board').droppable({hoverClass:'.board .putIn', accept:'.item',
 	drop:function(){
@@ -16,6 +12,12 @@ $(document).ready(function(){
 	});
 
 	$('.item').on('click', function(){
+		$('.item').draggable({containment:'document', revert:true, start:function(){
+		if($class==$(this).class)
+			contents = $(this).text();
+			}
+		});
+
 		var $class = $(this).class;
 	});
 
