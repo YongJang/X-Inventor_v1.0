@@ -1,5 +1,6 @@
 .board{
 	color:#ffffff;
+	position:absolute;
 	background-color:#404040;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -10,6 +11,7 @@
 }
 
 .board2{
+	position:inherit;
 	width:inherit;
 	height:inherit;
 }
