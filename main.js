@@ -8,6 +8,7 @@ $(document).ready(function(){
 	}
 	});
 
+
 	$('.board').droppable({hoverClass:'.board .putIn', accept:'.item',
 	drop:function(){
 		$('.sb').append('<div class="sl">'+contents+'</div>');
@@ -19,10 +20,15 @@ $(document).ready(function(){
 	}
 	});
 
-	$('.board').droppable({hoverClass:'.board .putIn', accept:'.output',
+	$('.board2').droppable({hoverClass:'.board .putIn', accept:'.output',
 	drop:function(){
 		$('.ob').append('<div class="ol">'+contents+'</div>');
 	}
+	});
+
+	$('.item').on('click', function(){
+		var $btn = $(this).button('loading');
+		$btn.button('reset')
 	});
 
 	$('#simulButton').on('click', function(){
