@@ -21,7 +21,7 @@ $(document).ready(function(){
 		var $class = $(this).class;
 	});
 
-	$('#simulButton').on('click', function(){
+	$('#simulButton').on('hover', function(){
 		var $btn = $(this).button('loading');
 		$btn.button('reset')
 	});
