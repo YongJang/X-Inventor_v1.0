@@ -2,107 +2,55 @@
 	color:#ffffff;
 	background-color:#404040;
 	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
+		 -moz-background-size:cover;
+			  -o-background-size:cover;
 	margin-bottom: 0px;
 	padding: 10px;
 	background-size: cover;
 	display: block;
+	z-index: -1;
 }
-
-
-.board .putIn{
-	background-color:#808080;
-}
-
-/*input board*/
-.ib{
-	width: 75%;
-	height: 75em;
-	color: #ffffff;
-	background-color: #404040;
-	background-attachment: right;
-	border-radius: 5px;
-	float: right;
-	overflow: auto;
-}
-
-/*input list*/
-.il{
-	color: #000000;
+.input-sidebar, .output-sidebar{
 	text-align: center;
-	vertical-align: center;
-	padding-top:auto;
-	padding-bottom:auto;
-	background-color: #f0ad4e;
-	width: inherit;
-	height: 180px;
-	background-size:fixed;
-	font-weight: bold;
-	border-radius: inherit;
-	float: inherit;
 }
-
-/*output board*/
-.ob{
-	width: 75%;
-	height: 75em;
+.input-sidebar{
+	color: #337ab7;
+}
+.output-sidebar{
+	color: #f0ad4e;
+}
+#title{
+	color: #333333;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 40px;
+}
+#glyphicons{
+	padding: 1px;
+	align:center;
+	margin: 0 auto;
+}
+.input-item:hover{
+	background: #337ab7;
+	cursor: pointer;
+	transition: background .5s;
+}
+.output-item:hover{
+	background: #f0ad4e;
+	cursor: pointer;
+	transition: background .5s;
+}
+.process{
+	align: center;
 	color: #ffffff;
-	background-color: #404040;
-	background-attachment: right;
-	border-radius: 5px;
-	float: right;
-	overflow: auto;
+	height: 50px;
+	width: 100%;
+	padding: 10px;
+	margin: 0 auto;
 }
-
-/*output list*/
-.ol{
-	color: #000000;
-	text-align: center;
-	vertical-align: center;
-	padding-top:auto;
-	padding-bottom:auto;
-	background-color: #337ab7;
-	width: inherit;
-	height: 180px;
-	background-size:fixed;
-	font-weight: bold;
-	border-radius: inherit;
-	float: inherit;
-}
-
-body{
-	
-}
-
-.list{
-	position:relative;
-	height:20px;
-	width:cover;
-	border-radius:5px;
-	background-color:#ffffff;
-}
-#na{
-	width: 500px;
-	height: 500px;
-	background-color:#cccccc;
-}
-#item{
-	position:relative;
-	height: 20px;
-	width: 40px;
-	border-radius: 5px;
-	background-color: #ffffff;
-}
-#simulating{
-	color: #ffffff;
-	height: 40px;
-	width: 100px;
+#simulating{	
 	background-color: #337ab7;
 }
 #create{
-	color: #ffffff;
-	height: 40px;
-	width: 100px;
 	background-color: #f0ad4e;
 }
