@@ -16,8 +16,8 @@
 
 /*simulating board*/
 .sb{
-	width: 200px;
-	height: 100px;
+	width: 400px;
+	height: 250px;
 	color: #ffffff;
 	background: #404040;
 }
@@ -26,8 +26,8 @@
 .sl{
 	color: #000000;
 	background-color: #f0ad4e;
-	width: 100%;
-	height: auto;
+	width: inherit;
+	height: inherit;
 	font-weight: bold;
 }
 
