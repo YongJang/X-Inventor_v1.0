@@ -16,12 +16,13 @@
 
 /*simulating board*/
 .sb{
-	width: col-md-3;
-	height: 4em;
+	width: 25%;
+	height: 75em;
 	color: #ffffff;
 	background-color: #404040;
 	background-attachment: right;
 	border-radius: 5px;
+	float: right;
 	overflow: auto;
 }
 
@@ -38,8 +39,36 @@
 	background-size:fixed;
 	font-weight: bold;
 	border-radius: inherit;
+	float: inherit;
 }
 
+/*output board*/
+.ob{
+	width: 25%;
+	height: 75em;
+	color: #ffffff;
+	background-color: #404040;
+	background-attachment: right;
+	border-radius: 5px;
+	float: right;
+	overflow: auto;
+}
+
+/*output list*/
+.ol{
+	color: #000000;
+	text-align: center;
+	vertical-align: center;
+	padding-top:auto;
+	padding-bottom:auto;
+	background-color: #f0ad4e;
+	width: inherit;
+	height: 180px;
+	background-size:fixed;
+	font-weight: bold;
+	border-radius: inherit;
+	float: inherit;
+}
 
 body{
 	
