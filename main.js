@@ -4,13 +4,10 @@ $(document).ready(function(){
 	$('.board').css('height',height);
 	
 	$('.item').draggable({containment:'document', revert:true, start:function(){
-		if($(this)==='.item')
-			contents = $(this).text;
-		else
-			contents = $(this).text+"haha";
+		if($class==$(this).class)
+			contents = $(this).text();
 	}
 	});
-
 
 	$('.board').droppable({hoverClass:'.board .putIn', accept:'.item',
 	drop:function(){
@@ -18,24 +15,12 @@ $(document).ready(function(){
 	}
 	});
 
-	$('.output').draggable({containment:'document', revert:true, start:function(){
-		contents = $(this).text();
-	}
-	});
-
-	$('.board2').droppable({hoverClass:'.board .putIn', accept:'.output',
-	drop:function(){
-		$('.ob').append('<div class="ol">'+contents+'</div>');
-	}
-	});
-
 	$('.item').on('click', function(){
-		var $btn = $(this).button('loading');
-		$btn.button('reset')
+		var $class = $(this).class;
 	});
 
 	$('#simulButton').on('click', function(){
 		var $btn = $(this).button('loading');
-		$btn.button('reset');
+		$btn.button('reset')
 	});
 });
