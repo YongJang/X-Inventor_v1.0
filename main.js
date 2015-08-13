@@ -14,6 +14,17 @@ $(document).ready(function(){
 	}
 	});
 
+	$('.output').draggable({containment:'document', revert:true, start:function(){
+		contents = $(this).text();
+	}
+	});
+
+	$('.board').droppable({hoverClass:'.board .putIn', accept:'.output',
+	drop:function(){
+		$('.ob').append('<div class="ol">'+contents+'</div>');
+	}
+	});
+
 	$('#simulButton').on('click', function(){
 		var $btn = $(this).button('loading');
 		$btn.button('reset')
