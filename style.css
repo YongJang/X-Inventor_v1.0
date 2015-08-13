@@ -11,14 +11,8 @@
 }
 
 .board2{
-	color:#ffffff;
-	background-color:#404040;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	margin-bottom: 0px;
-	padding: 10px;
-	background-size: cover;
+	width:inherit;
+	height:inherit;
 }
 
 .board .putIn{
