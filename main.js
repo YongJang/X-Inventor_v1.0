@@ -5,15 +5,17 @@ $(document).ready(function(){
 	
 	
 
-	$('.board').droppable({hoverClass:'.putIn', accept:'.item',
-	drop:function(){
-		$('.ib').append('<div class="sl">'+contents+'</div>');
-	}
-	});
+	
 
 	$('.item').draggable({containment:'document', revert:true, start:function(){
 		contents = $(this).id;
 		}
+	});
+
+	$('.board').droppable({hoverClass:'.putIn', accept:'.item',
+	drop:function(){
+		$('.ib').append('<div class="ol">'+contents+'</div>');
+	}
 	});
 
 	$('.item').on('hover', function(){
