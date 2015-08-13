@@ -1,4 +1,3 @@
-
 .board{
 	color:#ffffff;
 	background-color:#404040;
@@ -11,11 +10,25 @@
 	display: block;
 }
 
+.board .putIn{
+	background-color:#808080;
+}
+
+/*simulating board*/
 .sb{
 	width: auto;
 	height: auto;
 	color: #ffffff;
 	background: #404040;
+}
+
+/*simulating list*/
+.sl{
+	color: #000000;
+	background-color: #f0ad4e;
+	width: 100%;
+	height: auto;
+	font-weight: bold;
 }
 
 body{
