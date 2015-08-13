@@ -5,7 +5,9 @@ $(document).ready(function(){
 	
 	$('.item').draggable({containment:'document', revert:true, start:function(){
 		if($(this)=='.item')
-			contents = $(this).text();
+			contents = $(this).text;
+		else
+			contents = $(this).text+"haha";
 	}
 	});
 
