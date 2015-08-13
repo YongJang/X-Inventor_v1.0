@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	$('.board').droppable({hoverClass:'.board .putIn', accept:'.item',
 	drop:function(){
-		$('.sb').append(contents+'<br />');
+		$('.sb').append('<div class="sl">'+contents+'</div>');
 	}
 	});
 
