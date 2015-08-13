@@ -1,98 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/main.css">
+		<link rel="stylesheet" type="text/css" href="./style.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="./main.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 		<title>Inventor-X</title>
 	</head>
 	<body>
-		
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-						aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Inventor-X</a>
+	 		 <div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-3 col-md-2 sidebar">
+						<h3>Input</h3>
+						<ul class="nav nav-sidebar">
+							<li class="item"><a href="#">Brightness<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Length<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Compass<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Heart beat<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Sound<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Time<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Rotation<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Bluetooth<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Wi-Fi<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Camera<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Color<span class="sr-only">(current)</span></a></li>
+							<li class="item"><a href="#">Gyro<span class="sr-only">(current)</span></a></li>
+						</ul>
+						<div>
+							<button type="button" id="simulating" data-loading-text="Loading..." class="btn" autocomplete="off">
+								Simulating
+							</button>
+						</div>
+					</div>
+				<div class="col-sm-6 col-md-8 board">
+					<h3>Board</h3>
+					<p>This is a board.</p>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-1">
+							</div>
+							<div class="col-md-6 sb">							
+							</div>
+							<div class="col-md-1">
+							</div>
+						</div>
+					</div>
 				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/home.jsp">Home</a></li>
-						<li><a href="/board.jsp">Board</a></li>
-						<li><a href="/login.jsp">Log In</a></li>
-						<li><a href="/signup/jsp">Sign Up</a></li>
-						<li><a href="/help.jsp">Help</a></li>
+				<div class="col-sm-3 col-md-2 sidebar">
+					<h3>Output</h3>
+					<ul class="nav nav-sidebar">
+						<li class="item"><a href="#">Speaker<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Movement<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Light<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Vibration<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Save Data<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">H A<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Waterpump<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Display<span class="sr-only">(current)</span></a></li>
+						<li class="item"><a href="#">Heater<span class="sr-only">(current)</span></a></li>
 					</ul>
-					<form class="navbar-form navbar-right">
-						<input name="search" type="text" class="form-control"
-							placeholder="Search...">
-					</form>
-				</div>
-			</div>
-		</nav>
-	<div class="jumbotron">
-      <div class="container">      
-        <h1>Inventor-X</h1>
-        <p>This is a template for you. the early dawn, I could be limped, just wet in dopey fog from you. During an autumn afternoon, I are coated with your lovely smile. Even the breeze is not able to tremble my hair, it will let me dance. you're not really hard to see, altough I'm not going to find the girl like you.</p>
-        <p><a class="btn btn-primary btn-lg" href="./main.html" role="button">Learn more</a></p>
-      </div>
-    </div>	
-<div class="row">
-		<div class="col-sm-4 col-md-4"></div>
-	        <div class="col-sm-4 col-md-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-				<div class="panel-body">
-					Panel content
+					<div>
+						<button type="button" id="create" data-loading-text="Loading..." class="btn" autocomplete="off">
+							Create
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-4 col-md-4"></div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-3 col-md-3"></div>
-	<div class="col-md-6">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-				<th>#</th>
-		                <th>First Name</th>
-                		<th>Last Name</th>
-		                <th>Username</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-				<td>2</td>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Larry</td>
-					<td>the Bird</td>
-					<td>@twitter</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="col-sm-3 col-md-3"></div>
 	</body>
 </html>
