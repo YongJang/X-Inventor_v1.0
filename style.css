@@ -11,6 +11,13 @@
 	display: block;
 }
 
+.sb{
+	width: auto;
+	height: auto;
+	color: #ffffff;
+	background: #404040;
+}
+
 body{
 	
 }
