@@ -16,7 +16,7 @@
 
 /*simulating board*/
 .sb{
-	width: 75%;
+	width: 350px;
 	height: 75em;
 	color: #ffffff;
 	background-color: #404040;
@@ -44,7 +44,7 @@
 
 /*output board*/
 .ob{
-	width: 75%;
+	width: 350px;
 	height: 75em;
 	color: #ffffff;
 	background-color: #404040;
