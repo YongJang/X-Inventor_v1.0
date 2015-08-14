@@ -23,11 +23,17 @@ $(document).ready(function(){
 		accept: ".item",
 		over:function(){
 			$('.board').css('background-color','#505050');
-			$sc.addClass('over');
+			if($sc.hasClass('output')){
+				$sc.addClass('outputOver');
+			}else if($sc.hasClass('input')){
+				$sc.addClass('inputOver');
+			}
+			
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
-			$sc.removeClass('over');
+			$sc.removeClass('outputOver');
+			$sc.removeClass('inputOver');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
@@ -36,7 +42,8 @@ $(document).ready(function(){
 				$('#draw').append('<div id="content" class="label label-primary">'+contents+'</div>');
 			}
 			$('.board').css('background-color','#404040');
-			$sc.removeClass('over');
+			$sc.removeClass('outputOver');
+			$sc.removeClass('inputOver');
 		}
 	});
 
