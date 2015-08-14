@@ -22,21 +22,20 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		over:function(){
-			$(this).css('background-color','#505050');
-			$('.output').css('color','#ffffff');
+			$('.board').css('background-color','#505050');
+			$sc.addClass('over');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
-			$('.output').css('color','#000000');
+			$sc.removeClass('over');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
-				$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
+				$('#draw').append('<div id="content" class="label label-warning">'+contents+'</div>');
 			}else{
-				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
+				$('#draw').append('<div id="content" class="label label-primary">'+contents+'</div>');
 			}
 			$('.board').css('background-color','#404040');
-			$('.output').css('color','#000000');
 			$sc.removeClass('over');
 		}
 	});
