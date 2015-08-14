@@ -22,7 +22,7 @@ $(document).ready(function(){
 		accept: ".item",
 		drop:function(){
 			if(('.output').hasClass('output')){
-				$('#draw').append('<span id="content" class="label label-warning">'+contents+$(this)+'</span>');
+				$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
 			}else{
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
