@@ -21,8 +21,8 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		drop:function(){
-			if(this.hasClass('output')){
-				$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
+			if(('.output').hasClass('output')){
+				$('#draw').append('<span id="content" class="label label-warning">'+contents+$(this)+'</span>');
 			}else{
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
