@@ -4,14 +4,12 @@ $(document).ready(function(){
 		var height = $(window).height();
 		var width = $(window).width();
 		$('.board').css('height',height);
+		$('.btn').css('width', width/8);
 	}
 	var selector=0;
 	var x, y;
-
 	$('.item').draggable({
 		containment:'document', 
-		refreshPosition:true,
-		scope:'item'
 		revert:true,
 		start:function(event, position){
 			x=position.left;
@@ -28,15 +26,13 @@ $(document).ready(function(){
 	});
 
 	$('.board').droppable({
-		hoverClass:'.board',
+		hoverClass:'.board',	
 		accept: '.output',
-		accept: '.input',
-		accept: 'item',
 		drop:function(){
 			$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
 		}
 	});
-	$('#content').draggable({
+	$('#content').sortable({
 		containment:'.border'
 	});
 	$('.btn').on('click', function(){
