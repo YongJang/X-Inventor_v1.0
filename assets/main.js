@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var height = $(window).height();
 		var width = $(window).width();
 		$('.board').css('height',height);
-		$('.btn').css('width', width/7);
+		$('.btn').css('width', width/8);
 	}
 	var selector=0;
 	var x, y;
