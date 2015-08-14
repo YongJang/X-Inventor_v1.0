@@ -7,17 +7,16 @@ $(document).ready(function(){
 	}
 	var selector=0;
 	var x, y;
+
 	$('.item').draggable({
 		containment:'document', 
+		refreshPosition:true,
+		scope:'item'
 		revert:true,
 		start:function(event, position){
 			x=position.left;
 			contents = $(this).text();
 		}
-	});
-
-	$('#draw').draggable({
-		containment:'document'
 	});
 
 	$('.board').droppable({
@@ -29,8 +28,10 @@ $(document).ready(function(){
 	});
 
 	$('.board').droppable({
-		hoverClass:'.board',	
+		hoverClass:'.board',
 		accept: '.output',
+		accept: '.input',
+		accept: 'item',
 		drop:function(){
 			$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
 		}
