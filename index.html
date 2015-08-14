@@ -16,7 +16,7 @@
 	 		 <div class="container-fluid">
 				<div class="row">
 					<div class="col-sm-3 col-md-2 sidebar">
-						<div class="input-sidebar"><h2 id="title">INPUT</h2></div>
+						<div class="input-sidebar"><h2 class="title input">INPUT</h2></div>
 						<ul class="nav nav-sidebar">
 							<li class="input item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-232-sun.png"> Brightness</h4></li>
 							<li class="input item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-69-ruler.png"> Length</h4></li>
@@ -33,19 +33,17 @@
 						</ul>
 						<div class="process">
 							<button type="button" id="simulating" data-loading-text="Loading..." class="btn" autocomplete="off">
-								Simulating
+								<h2>Simulating</h2>
 							</button>
 						</div>
 					</div>
 				<div class="col-sm-6 col-md-8 board">
 					<h3>Board</h3>
 					<p>This is a board.</p>
-					<div id="draw">
-						
-					</div>
+					<h3 id="draw"></h3>
 				</div>
 				<div class="col-sm-3 col-md-2 sidebar">
-					<div class="output-sidebar"><h2 id="title">OUTPUT</h2></div>
+					<div class="output-sidebar"><h2 class="title output">OUTPUT</h2></div>
 					<ul class="nav nav-sidebar">
 						<li class="output item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-13-heart.png"> Speaker</h4></li>
 						<li class="output item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-13-heart.png"> Movement</h4></li>
@@ -57,10 +55,12 @@
 						<li class="output item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-13-heart.png"> Display</h4></li>
 						<li class="output item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-13-heart.png"> Heater</h4></li>
 					</ul>
-					<div class="process">
-						<button type="button" id="create" data-loading-text="Loading..." class="btn" autocomplete="off">
-							Create
-						</button>
+					<div class="mastfoot">
+						<div class="process">
+							<button type="button" id="create" data-loading-text="Loading..." class="btn" autocomplete="off">
+								<h2>Create</h2>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
