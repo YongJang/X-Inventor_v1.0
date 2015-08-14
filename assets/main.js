@@ -17,12 +17,7 @@ $(document).ready(function(){
 	});
 
 	$('#draw').draggable({
-		containment:'parent', 
-		
-		start:function(event, position){
-			x=position.left;
-			contents = $(this).text();
-		}
+		containment:'document'
 	});
 
 	$('.board').droppable({
