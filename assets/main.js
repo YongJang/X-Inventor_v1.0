@@ -1,19 +1,16 @@
 $(document).ready(function(){
 	$('body').css('overflow','hidden');	
-	if(1){
-		var height = $(window).height();
-		var width = $(window).width();
-		$('.board').css('height',height);
-	}
-	var selector=0;
-	var x, y;
+	
+	var height = $(window).height();
+	var width = $(window).width();
+	$('.board').css('height',height);
+
 
 
 	$('.item').draggable({
 		containment:'document', 
 		revert:true,
 		start:function(event, position){
-			x=position.left;
 			contents = $(this).text();
 			$sc=$(this);
 		}
