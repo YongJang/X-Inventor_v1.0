@@ -4,10 +4,10 @@ $(document).ready(function(){
 		var height = $(window).height();
 		var width = $(window).width();
 		$('.board').css('height',height);
-		$('.btn').css('width', width/8);
 	}
 	var selector=0;
 	var x, y;
+
 
 	$('.item').draggable({
 		containment:'document', 
@@ -22,12 +22,19 @@ $(document).ready(function(){
 	$('.board').droppable({
 		hoverClass:'.board',
 		accept: ".item",
+		over:function(){
+			$('.board').css('background-color','#808080');
+		},
+		out:function(){
+			$('.board').css('background-color','#404040');
+		},
 		drop:function(){
 			if($sc.hasClass('output')){
 				$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
 			}else{
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
+
 		}
 	});
 
@@ -39,4 +46,9 @@ $(document).ready(function(){
 		$('.board').append('<span class="label label-primary">'+contents+'</span>');
 		$btn.button('reset')
 	});
+
+	function put(){
+
+	}
 });
+
