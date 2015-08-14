@@ -1,1 +1,56 @@
--
+.board{
+	color:#ffffff;
+	background-color:#404040;
+	-webkit-background-size:cover;
+		 -moz-background-size:cover;
+			  -o-background-size:cover;
+	margin-bottom: 0px;
+	padding: 10px;
+	background-size: cover;
+	display: block;
+	z-index: -1;
+}
+.input-sidebar, .output-sidebar{
+	text-align: center;
+}
+.input-sidebar{
+	color: #337ab7;
+}
+.output-sidebar{
+	color: #f0ad4e;
+}
+#title{
+	color: #333333;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 40px;
+}
+#glyphicons{
+	padding: 1px;
+	align:center;
+	margin: 0 auto;
+}
+.input:hover{
+	background: #337ab7;
+	cursor: pointer;
+	transition: background .5s;
+}
+.output:hover{
+	background: #f0ad4e;
+	cursor: pointer;
+	transition: background .5s;
+}
+.process{
+	align: center;
+	color: #ffffff;
+	height: 50px;
+	width: 100%;
+	padding: 10px;
+	margin: 0 auto;
+}
+#simulating{	
+	background-color: #337ab7;
+}
+#create{
+	background-color: #f0ad4e;
+}
