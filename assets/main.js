@@ -21,7 +21,7 @@ $(document).ready(function(){
 		accept: ".item",
 		over:function(){
 			$(this).css('background-color','#505050');
-			$('output').css('color','#ffffff');
+			$('.output').css('color','#ffffff');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
