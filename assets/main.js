@@ -14,6 +14,7 @@ $(document).ready(function(){
 		start:function(event, position){
 			x=position.left;
 			contents = $(this).text();
+			$sc=$(this);
 		}
 	});
 
@@ -21,7 +22,7 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		drop:function(){
-			if($('#i').hasClass('output')){
+			if($sc.hasClass('output')){
 				$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
 			}else{
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
