@@ -9,6 +9,8 @@
 	background-size: cover;
 	display: block;
 	z-index: -1;
+	position:relative;
+	padding: 5px;
 }
 .input-sidebar, .output-sidebar{
 	text-align: center;
@@ -74,3 +76,10 @@
 	z-index: 1;
 }
 
+.inputContent{
+	position:absolute;
+}
+
+#onBoard{
+	
+}
