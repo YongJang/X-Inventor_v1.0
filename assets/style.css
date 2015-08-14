@@ -55,10 +55,22 @@
 	background-color: #f0ad4e;
 }
 
-.over{
+.inputOver{
 	width: 200px;
 	height: 70px;
-	background-color: #00ffff;
+	background-color: #06d5f9;
 	text-align:center;
+	padding:10px;
 	z-index: 1;
 }
+
+.outputOver{
+	width: 200px;
+	height: 70px;
+	background-color: #eaf50a;
+	text-align:center;
+	vertical-align:center;
+	padding:10px;
+	z-index: 1;
+}
+
