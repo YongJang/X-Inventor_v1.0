@@ -23,7 +23,7 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		over:function(){
-			$('.board').css('background-color','#808080');
+			$('.board').css('background-color','#606060');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			}else{
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
-
+			$('.board').css('background-color','#404040');
 		}
 	});
 
