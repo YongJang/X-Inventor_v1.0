@@ -20,12 +20,10 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		over:function(){
-			$('.board').css('background-color','#505050');
-			$sc.addClass('over');
+			$(this).css('background-color','#505050');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
-			$sc.removeClass('over');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
