@@ -17,8 +17,8 @@ $(document).ready(function(){
 	});
 
 	$('#draw').draggable({
-		containment:'.board', 
-		revert:true,
+		containment:'parent', 
+		
 		start:function(event, position){
 			x=position.left;
 			contents = $(this).text();
