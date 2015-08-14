@@ -10,8 +10,7 @@ $(document).ready(function(){
 
 	$('.item').draggable({
 		containment:'document', 
-		refreshPosition:true,
-		scope:'.item',
+		scope:".item",
 		revert:true,
 		start:function(event, position){
 			x=position.left;
@@ -20,20 +19,13 @@ $(document).ready(function(){
 	});
 
 	$('.board').droppable({
-		hoverClass:'.board',		
-		accept: '.input',
-		drop:function(){
-			$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
-		}		
-	});
-
-	$('.board').droppable({
 		hoverClass:'.board',
-		accept: '.item',
+		accept: ".item",
 		drop:function(){
 			$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
 		}
 	});
+
 	$('#content').draggable({
 		containment:'.border'
 	});
