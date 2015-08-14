@@ -25,6 +25,7 @@ $(document).ready(function(){
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
+			$('.output').css('color','#000000');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
@@ -33,6 +34,7 @@ $(document).ready(function(){
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
 			$('.board').css('background-color','#404040');
+			$('.output').css('color','#000000');
 			$sc.removeClass('over');
 		}
 	});
