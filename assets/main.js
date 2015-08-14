@@ -10,7 +10,6 @@ $(document).ready(function(){
 
 	$('.item').draggable({
 		containment:'document', 
-		scope:".item",
 		revert:true,
 		start:function(event, position){
 			x=position.left;
