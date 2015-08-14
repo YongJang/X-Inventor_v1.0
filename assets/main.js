@@ -21,7 +21,11 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		drop:function(){
-			$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
+			if($(this).hasClass('output')){
+				$('#draw').append('<span id="content" class="label label-warning">'+contents+'</span>');
+			}else{
+				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
+			}
 		}
 	});
 
