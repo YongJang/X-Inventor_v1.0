@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var height = $(window).height();
 	var width = $(window).width();
 	$('.board').css('height',height);
+	$('#create').css('width',width/8);
 
 
 
@@ -21,11 +22,11 @@ $(document).ready(function(){
 		accept: ".item",
 		over:function(){
 			$(this).css('background-color','#505050');
-			$sc.addClass('over');
+			$('.output').css('color','#ffffff');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
-			$sc.removeClass('over');
+			$('.output').css('color','#000000');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
@@ -34,6 +35,7 @@ $(document).ready(function(){
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
 			$('.board').css('background-color','#404040');
+			$('.output').css('color','#000000');
 			$sc.removeClass('over');
 		}
 	});
