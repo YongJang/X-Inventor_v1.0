@@ -23,7 +23,8 @@ $(document).ready(function(){
 		hoverClass:'.board',
 		accept: ".item",
 		over:function(){
-			$('.board').css('background-color','#606060');
+			$('.board').css('background-color','#505050');
+
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
