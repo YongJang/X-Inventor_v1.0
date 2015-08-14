@@ -21,11 +21,11 @@ $(document).ready(function(){
 		accept: ".item",
 		over:function(){
 			$(this).css('background-color','#505050');
-			$('.output').addClass('over');
+			$sc.addClass('over');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
-			$('.output').removeClass('over');
+			$sc.removeClass('over');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
