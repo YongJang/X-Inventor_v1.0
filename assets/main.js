@@ -16,6 +16,15 @@ $(document).ready(function(){
 		}
 	});
 
+	$('#draw').draggable({
+		containment:'.board', 
+		revert:true,
+		start:function(event, position){
+			x=position.left;
+			contents = $(this).text();
+		}
+	});
+
 	$('.board').droppable({
 		hoverClass:'.board',		
 		accept: '.input',
