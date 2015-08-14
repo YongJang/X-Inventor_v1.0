@@ -21,11 +21,11 @@ $(document).ready(function(){
 		accept: ".item",
 		over:function(){
 			$(this).css('background-color','#505050');
-			$('.output').css('color','#ffffff');
+			$('.output').addClass('over');
 		},
 		out:function(){
 			$('.board').css('background-color','#404040');
-			$('.output').css('color','#000000');
+			$('.output').removeClass('over');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
@@ -34,7 +34,6 @@ $(document).ready(function(){
 				$('#draw').append('<span id="content" class="label label-primary">'+contents+'</span>');
 			}
 			$('.board').css('background-color','#404040');
-			$('.output').css('color','#000000');
 			$sc.removeClass('over');
 		}
 	});
