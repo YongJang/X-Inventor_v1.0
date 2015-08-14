@@ -9,12 +9,6 @@
 	background-size: cover;
 	display: block;
 	z-index: -1;
-	-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          		    box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-}
-.item{
-	margin: 0;
-	padding: 0;
 }
 .input-sidebar, .output-sidebar{
 	text-align: center;
@@ -25,16 +19,11 @@
 .output-sidebar{
 	color: #f0ad4e;
 }
-.title{
+#title{
+	color: #333333;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 	font-size: 40px;
-}
-.title .input{
-	color: #337ab7;
-}
-.title .output{
-	color: #f0ad4e;
 }
 #glyphicons{
 	padding: 1px;
@@ -52,17 +41,24 @@
 	transition: background .5s;
 }
 .process{
-	position: fixed;
-	bottom: 75px;
 	align: center;
 	color: #ffffff;
-	height: 20px;
+	height: 50px;
+	width: 100%;
 	padding: 10px;
-	margin: 0;
+	margin: 0 auto;
 }
 #simulating{	
 	background-color: #337ab7;
 }
 #create{
 	background-color: #f0ad4e;
+}
+
+.over{
+	width: 200px;
+	height: 70px;
+	background-color: #00ffff;
+	text-align:center;
+	z-index: 1;
 }
