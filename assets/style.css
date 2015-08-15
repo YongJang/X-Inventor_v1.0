@@ -8,7 +8,20 @@
 	padding: 10px;
 	background-size: cover;
 	display: block;
-	z-index: -1;
+	position:relative;
+	padding: 5px;
+}
+
+.boardOver{
+	color:#ffffff;
+	background-color:#505050;
+	-webkit-background-size:cover;
+		 -moz-background-size:cover;
+			  -o-background-size:cover;
+	margin-bottom: 0px;
+	padding: 10px;
+	background-size: cover;
+	display: block;
 	position:relative;
 	padding: 5px;
 }
@@ -64,7 +77,6 @@
 	text-align:center;
 	padding: 5px;
 	margin: 5px;
-	z-index: 1;
 }
 
 .outputOver{
@@ -76,11 +88,10 @@
 	vertical-align:center;
 	padding: 5px;
 	margin: 5px;
-	z-index: 1;
 }
 
 .inputContent{
-	width: 150px;
+	width: auto;
 	height: auto;
 	border-radius: 5px;
 	position:absolute;
@@ -89,7 +100,6 @@
 	vertical-align:center;
 	padding: 5px;
 	margin: 5px;
-	z-index: 1;
 }
 .outputContent{
 	position:relative;
@@ -101,9 +111,7 @@
 	vertical-align:center;
 	padding: 5px;
 	margin: 5px;
-	z-index: 1;
 	display:block;
 }
 #onBoard{
-	z-index:1;
 }
