@@ -81,7 +81,7 @@
 
 .inputContent{
 	width: 150px;
-	height: 50px;
+	height: auto;
 	border-radius: 5px;
 	position:absolute;
 	background-color: #337ab7;
@@ -92,6 +92,7 @@
 	z-index: 1;
 }
 .outputContent{
+	position:relative;
 	width: 150px;
 	height: 50px;
 	border-radius: 5px;
@@ -101,6 +102,7 @@
 	padding: 5px;
 	margin: 5px;
 	z-index: 1;
+	display:block;
 }
 #onBoard{
 	z-index:1;
