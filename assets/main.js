@@ -38,17 +38,7 @@ $(document).ready(function(){
 		stack:".board"
 	});
 	
-	$("#onBoard div").draggable({
-		containment:'document',
-		cursorAt:{top: -2, left: -2},
-		start:function(event, position){
-			contents = $(this).text();
-			$sc=$(this);
-		},
-		helper:function(event){
-			return $("<div class='inputOver'>"+contents+"</div>");
-		}
-	});
+	
 	
 	
 	
@@ -80,12 +70,21 @@ $(document).ready(function(){
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
-				$('.inputID'+(inputNum-1)).append('<div class="outputContent">'+contents+'</div>');
-			}else{
-				$('#draw').append("<div class='"+"inputID"+inputNum+" inputContent'>"+contents+"</div>");
-				$('.inputID'+inputNum).css('left',mouseX+'px');
-				$('.inputID'+inputNum).css('top',mouseY+'px');
+				$('#inputID'+(inputNum-1)).append('<div class="outputContent">'+contents+'</div>');
+			}else if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
+				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
+				$('#inputID'+inputNum).css('left',mouseX+'px');
+				$('#inputID'+inputNum).css('top',mouseY+'px');
+				$("#inputID"+inputNum).draggable({
+					containment:'document',
+					cursorAt:{top: -2, left: -2},
+					start:function(event){
+						contents = $(this).text();
+						$sc=$(this);
+					}
+				});
 				inputNum+=1;
+				
 			}
 			
 			$sc.removeClass('outputOver');
