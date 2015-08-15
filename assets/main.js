@@ -77,7 +77,6 @@ $(document).ready(function(){
 				$('#inputID'+inputNum).css('top',mouseY+'px');
 				$("#inputID"+inputNum).draggable({
 					containment:'document',
-					cursorAt:{top: -2, left: -2},
 					start:function(event){
 						contents = $(this).text();
 						$sc=$(this);
