@@ -51,7 +51,7 @@ $(document).ready(function(){
 			if($sc.hasClass('output')){
 				$('#draw').append('<div class="label label-warning">'+contents+'</div>');
 			}else{
-				$('#draw').append("<div class='label label-primary inputContent "+"inputID"+inputNum+"'>"+contents+"</div>");
+				$('#draw').append("<div class='item label label-primary inputContent "+"inputID"+inputNum+"'>"+contents+"</div>");
 			}
 			
 			
