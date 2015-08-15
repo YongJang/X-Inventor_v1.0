@@ -49,17 +49,19 @@ $(document).ready(function(){
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
-				$('#draw').append('<div class="label label-warning">'+contents+'</div>');
+				$('.inputID'+(inputNum-1)).append('<div class="label label-warning">'+contents+'</div>');
 			}else{
-				$('#draw').append("<div class='item label label-primary inputContent "+"inputID"+inputNum+"'>"+contents+"</div>");
+				$('#draw').append("<div class='label label-primary inputContent "+"inputID"+inputNum+"'>"+contents+"</div>");
+				$('.inputID'+inputNum).css('left',mouseX+'px');
+				$('.inputID'+inputNum).css('top',mouseY+'px');
+				inputNum+=1;
 			}
 			
 			
 			
-			$('.inputID'+inputNum).css('left',mouseX+'px');
-			$('.inputID'+inputNum).css('top',mouseY+'px');
+			
 			$('.board').css('background-color','#404040');
-			inputNum+=1;
+			
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
 		}
@@ -78,4 +80,3 @@ $(document).ready(function(){
 
 	}
 });
-
