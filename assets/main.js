@@ -28,7 +28,9 @@ $(document).ready(function(){
 		mouseY = event.pageY-offset.top;
 	});
 	
+	var $board = ['.board'];
 
+	
 	$('.board').droppable({
 		hoverClass:'.board',
 		accept: ".item",
@@ -49,7 +51,7 @@ $(document).ready(function(){
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
-				$('.inputID'+(inputNum-1)).append('<div class="label label-warning">'+contents+'</div>');
+				$('.inputID'+(inputNum-1)).append('<div class="label label-warning outputContent">'+contents+'</div>');
 			}else{
 				$('#draw').append("<div class='label label-primary inputContent "+"inputID"+inputNum+"'>"+contents+"</div>");
 				$('.inputID'+inputNum).css('left',mouseX+'px');
