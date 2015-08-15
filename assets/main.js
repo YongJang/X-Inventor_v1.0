@@ -10,32 +10,62 @@ $(document).ready(function(){
 	$('.board').css('height',height);
 	$('#create').css('width',width/8);
 	$('#simulating').css('width',width/8);
-
-
+	
+	
+	
+	var droppableArray = ['.board'];
+	droppableString = "";
+	
+	for(var i=0;i<droppableArray.length;i++){
+		droppableString+=' '+droppableArray[i];
+	}
+	
+	var draggableArray = ['.board'];
+	draggableString = ".item";
+	
+	for(var i=0;i<draggableArray.length;i++){
+		draggableString+=', '+draggableArray[i];
+	}
 
 	$('.item').draggable({
+		cursorAt:{top:-2,left:-2},
 		containment:'document', 
 		revert:true,
 		start:function(event, position){
 			contents = $(this).text();
 			$sc=$(this);
+		},
+		stack:".board"
+	});
+	
+	$("#onBoard div").draggable({
+		containment:'document',
+		cursorAt:{top: -2, left: -2},
+		start:function(event, position){
+			contents = $(this).text();
+			$sc=$(this);
+		},
+		helper:function(event){
+			return $("<div class='inputOver'>"+contents+"</div>");
 		}
 	});
 	
-	$('#onBoard').mousemove(function(event){
+	
+	
+	$('#onBoard').mousemove(function(event,position){
 		var offset = $(this).offset();
 		mouseX = event.pageX-offset.left;
 		mouseY = event.pageY-offset.top;
 	});
 	
-	var $board = ['.board'];
+	
 
 	
 	$('.board').droppable({
-		hoverClass:'.board',
-		accept: ".item",
+		hoverClass:'boardOver',
+		accept: ".item, #onBoard div",
+		
 		over:function(){
-			$('.board').css('background-color','#505050');
 			if($sc.hasClass('output')){
 				$sc.addClass('outputOver');
 			}else if($sc.hasClass('input')){
@@ -45,24 +75,18 @@ $(document).ready(function(){
 			
 		},
 		out:function(){
-			$('.board').css('background-color','#404040');
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
 		},
 		drop:function(){
 			if($sc.hasClass('output')){
-				$('.inputID'+(inputNum-1)).append('<div class="label label-warning outputContent">'+contents+'</div>');
+				$('.inputID'+(inputNum-1)).append('<div class="outputContent">'+contents+'</div>');
 			}else{
-				$('#draw').append("<div class='label label-primary inputContent "+"inputID"+inputNum+"'>"+contents+"</div>");
+				$('#draw').append("<div class='"+"inputID"+inputNum+" inputContent'>"+contents+"</div>");
 				$('.inputID'+inputNum).css('left',mouseX+'px');
 				$('.inputID'+inputNum).css('top',mouseY+'px');
 				inputNum+=1;
 			}
-			
-			
-			
-			
-			$('.board').css('background-color','#404040');
 			
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
