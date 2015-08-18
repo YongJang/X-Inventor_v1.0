@@ -3,9 +3,12 @@ $(document).ready(function(){
 	
 	var height = $(window).height();
 	var width = $(window).width();
+	var colWidth=$(window).width()/6;
 	var inputNum=0;
 	var mouseX;
 	var mouseY;
+	var mouseBoxX;
+	var mouseBoxY;
 	
 	$('.board').css('height',height);
 	$('#create').css('width',width/8);
@@ -26,21 +29,25 @@ $(document).ready(function(){
 	}
 	//드래그시 이벤트 설정
 	$('.item').draggable({
-		cursorAt:{top:-2,left:-2},
+		//cursorAt:{top:-2,left:-2},
 		containment:'document', 
 		revert:true,
-		start:function(event, position){
+		start:function(){
 			contents = $(this).text();
 			$sc=$(this);
 		},
-		stack:".board"
+		stack:".board",
+		drag:function(event){
+			mouseX = event.pageX;//-offset.left;
+			mouseY = event.pageY;//-offset.top;
+		}
 	});
 	//마우스 좌표 인식
-	$('#onBoard').mousemove(function(event,position){
-		var offset = $(this).offset();
-		mouseX = event.pageX-offset.left;
-		mouseY = event.pageY-offset.top;
-	});	
+	//$('document').mousemove(function(event,position){
+		//var offset = $(this).offset();
+		//mouseX = event.pageX;//-offset.left;
+		//mouseY = event.pageY;//-offset.top;
+	//});	
 	//드롭시 이벤트 설정
 	$('.board').droppable({
 		hoverClass:'boardOver',
@@ -62,7 +69,7 @@ $(document).ready(function(){
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
-				$('#inputID'+inputNum).css('left',mouseX+'px');
+				$('#inputID'+inputNum).css('left',(mouseX-colWidth)+'px');
 				$('#inputID'+inputNum).css('top',mouseY+'px');
 				$("#inputID"+inputNum).draggable({
 					snap:'.inputContent',
