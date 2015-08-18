@@ -51,13 +51,19 @@
 }
 /*준성이가 수정한 부분*/
 .input:hover{
+	border-radius: 5px;
 	background: #337ab7;
-	transition: background .5s;
+	-webkit-transition: background .5s;
+	-moz-transition: background .5s;
+	-o-transition: background .5s;
 }
 /*준성이가 수정한 부분*/
 .output:hover{
+	border-radius: 5px;
 	background: #f0ad4e;
-	transition: background .5s;
+	-webkit-transition: background .5s;
+	-moz-transition: background .5s;
+	-o-transition: background .5s;
 }
 .process{
 	align: center;
