@@ -74,8 +74,7 @@ $(document).ready(function(){
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
-				$('#inputID'+inputNum).css('left',(mouseX-colWidth-mouseBoxX)+'px');
-				$('#inputID'+inputNum).css('top',mouseY-mouseBoxY+'px');
+				$('#inputID'+inputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#inputID"+inputNum).draggable({
 					snap:'.inputContent',
 					snapMode:'outer',
