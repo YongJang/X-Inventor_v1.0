@@ -44,7 +44,7 @@ $(document).ready(function(){
 	//드롭시 이벤트 설정
 	$('.board').droppable({
 		hoverClass:'boardOver',
-		accept: ".item, #onBoard div",
+		accept: ".input, #onBoard .inputContent",
 		//보드에 아이템을 올려놨을 때
 		over:function(){
 			if($sc.hasClass('output')){
@@ -60,9 +60,7 @@ $(document).ready(function(){
 		},
 		//보드에 드롭했을 때
 		drop:function(){
-			if($sc.hasClass('output')){
-				$('#inputID'+(inputNum-1)).append('<div class="outputContent">'+contents+'</div>');
-			}else if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
+			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
 				$('#inputID'+inputNum).css('left',mouseX+'px');
 				$('#inputID'+inputNum).css('top',mouseY+'px');
@@ -73,6 +71,14 @@ $(document).ready(function(){
 					start:function(event){
 						contents = $(this).text();
 						$sc=$(this);
+					}
+				});
+				$("#inputID"+inputNum).droppable({
+					accept:".output",
+					drop:function(){
+						if($sc.hasClass('output')){
+							$(this).append('<div class="outputContent">'+contents+'</div>');
+						}
 					}
 				});
 				inputNum+=1;				
