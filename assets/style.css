@@ -45,14 +45,18 @@
 	align:center;
 	margin: 0 auto;
 }
+/*준성이가 수정한 부분*/
+.item:hover{
+	cursor: pointer;
+}
+/*준성이가 수정한 부분*/
 .input:hover{
 	background: #337ab7;
-	cursor: pointer;
 	transition: background .5s;
 }
+/*준성이가 수정한 부분*/
 .output:hover{
 	background: #f0ad4e;
-	cursor: pointer;
 	transition: background .5s;
 }
 .process{
@@ -114,6 +118,11 @@
 	padding: 5px;
 	margin: 5px;
 	display:block;
+}
+/*준성이가 수정한 부분*/
+.inputContent:hover,
+.outputContent:hover{
+	cursor: pointer;
 }
 #onBoard{
 }
