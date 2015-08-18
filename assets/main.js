@@ -9,9 +9,7 @@ $(document).ready(function(){
 	
 	$('.board').css('height',height);
 	$('#create').css('width',width/8);
-	$('#simulating').css('width',width/8);
-	
-	
+	$('#simulating').css('width',width/8);	
 	
 	var droppableArray = ['.board'];
 	droppableString = "";
@@ -26,7 +24,7 @@ $(document).ready(function(){
 	for(var i=0;i<draggableArray.length;i++){
 		draggableString+=', '+draggableArray[i];
 	}
-
+	//드래그시 이벤트 설정
 	$('.item').draggable({
 		cursorAt:{top:-2,left:-2},
 		containment:'document', 
@@ -37,37 +35,30 @@ $(document).ready(function(){
 		},
 		stack:".board"
 	});
-	
-	
-	
-	
-	
+	//마우스 좌표 인식
 	$('#onBoard').mousemove(function(event,position){
 		var offset = $(this).offset();
 		mouseX = event.pageX-offset.left;
 		mouseY = event.pageY-offset.top;
-	});
-	
-	
-
-	
+	});	
+	//드롭시 이벤트 설정
 	$('.board').droppable({
 		hoverClass:'boardOver',
 		accept: ".item, #onBoard div",
-		
+		//보드에 아이템을 올려놨을 때
 		over:function(){
 			if($sc.hasClass('output')){
 				$sc.addClass('outputOver');
 			}else if($sc.hasClass('input')){
 				$sc.addClass('inputOver');
-			}
-			
-			
+			}			
 		},
+		//보드에서 벗어날 때
 		out:function(){
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
 		},
+		//보드에 드롭했을 때
 		drop:function(){
 			if($sc.hasClass('output')){
 				$('#inputID'+(inputNum-1)).append('<div class="outputContent">'+contents+'</div>');
@@ -82,21 +73,15 @@ $(document).ready(function(){
 						$sc=$(this);
 					}
 				});
-				inputNum+=1;
-				
-			}
-			
+				inputNum+=1;				
+			}			
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
 		}
 	});
-
-	$('#content').draggable({
-		containment:'.border'
-	});
+	
 	$('.btn').on('click', function(){
 		var $btn = $(this).button('loading');
-		$('.board').append('<span class="label label-primary">'+contents+'</span>');
 		$btn.button('reset')
 	});
 
