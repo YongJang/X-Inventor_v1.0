@@ -40,6 +40,11 @@ $(document).ready(function(){
 		drag:function(event){
 			mouseX = event.pageX;//-offset.left;
 			mouseY = event.pageY;//-offset.top;
+			$('.input').mousemove(function(event,position){
+				var offset = $(this).offset();
+				mouseBoxX=event.pageX-offset.left;
+				mouseBoxY=event.pageY-offset.top;
+			});
 		}
 	});
 	//마우스 좌표 인식
@@ -69,8 +74,8 @@ $(document).ready(function(){
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
-				$('#inputID'+inputNum).css('left',(mouseX-colWidth)+'px');
-				$('#inputID'+inputNum).css('top',mouseY+'px');
+				$('#inputID'+inputNum).css('left',(mouseX-colWidth-mouseBoxX)+'px');
+				$('#inputID'+inputNum).css('top',mouseY-mouseBoxY+'px');
 				$("#inputID"+inputNum).draggable({
 					snap:'.inputContent',
 					snapMode:'outer',
