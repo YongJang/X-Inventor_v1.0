@@ -67,6 +67,8 @@ $(document).ready(function(){
 				$('#inputID'+inputNum).css('left',mouseX+'px');
 				$('#inputID'+inputNum).css('top',mouseY+'px');
 				$("#inputID"+inputNum).draggable({
+					snap:'.inputContent',
+					snapMode:'outer',
 					containment:'document',
 					start:function(event){
 						contents = $(this).text();
