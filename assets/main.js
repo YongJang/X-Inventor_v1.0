@@ -94,17 +94,24 @@ $(document).ready(function(){
 					}
 				});
 				$("#inputID"+inputNum).droppable({
-					accept:".output",
+					accept:".output, .outputContent",
 					over:function(){
 						if($sc.hasClass('output')){
 							$sc.addClass('outputBoxOver');
 						}
 					},
 					drop:function(){
-						if($sc.hasClass('output')){
+						if($sc.hasClass('output') && !$sc.hasClass('outputContent')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
+							outputNum++;
+						}
+						else if($sc.hasClass('outputContent')){
+							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							$('#outputID'+outputNum).css('position','relative');
+							$sc.removeClass('outputBoxOver');
+							$sc.remove();
 							outputNum++;
 						}
 					},
