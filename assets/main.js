@@ -3,18 +3,18 @@ $(document).ready(function(){
 	
 	var height = $(window).height();
 	var width = $(window).width();
-	var colWidth=$(window).width()/6;
+	var colWidth = $('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
 	var inputNum=0;
 	var outputNum=0;
 	var mouseX;
 	var mouseY;
 	var mouseBoxX;
 	var mouseBoxY;
-	
-	$('.board').css('height',height);
-
-	$('#create').css('width',width/8);
-	$('#simulating').css('width',width/8);	
+	var widthG = $('.col-md-8').css('width').replace(/[^-\d\.]/g, '');
+	$('.board').css('height', height);
+	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
+	$('#create').css('width', width/8);
+	$('#simulating').css('width', width/8);	
 	
 	var droppableArray = ['.board'];
 	droppableString = "";
@@ -83,15 +83,29 @@ $(document).ready(function(){
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
-				$('#inputID'+inputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+				$('#inputID'+inputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#inputID"+inputNum).draggable({
 					snap:'.inputContent',
 					snapMode:'outer',
 					containment:'document',
 					start:function(event){
+						$('.garbage').animate({
+							top: "0px"
+						}, 200);
+						$('.board').animate({
+							top: "50px"
+						}, 200);
 						contents = $(this).text();
 						$sc=$(this);
-					}
+					},
+					stop:function(){
+						$('.garbage').animate({
+							top: "-50px"
+						}, 200);
+						$('.board').animate({
+							top: "0px"
+						}, 200);
+					}				
 				});
 				$("#inputID"+inputNum).droppable({
 					accept:".output, .outputContent",
@@ -124,16 +138,30 @@ $(document).ready(function(){
 			}
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-				$('#outputID'+outputNum).css('position','absolute');
-				$('#outputID'+outputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+				$('#outputID'+outputNum).css('position','fixed');
+				$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#outputID"+outputNum).draggable({
 					snap:'.outputContent',
 					snapMode:'outer',
 					containment:'document',
 					start:function(event){
+						$('.garbage').animate({
+							top: "0px"
+						}, 200);
+						$('.board').animate({
+							top: "50px"
+						}, 200);
 						contents = $(this).text();
 						$sc=$(this);
-					}
+					},
+					stop:function(){
+						$('.garbage').animate({
+							top: "-50px"
+						}, 200);
+						$('.board').animate({
+							top: "0px"
+						}, 200);
+					}				
 				});
 				outputNum++;
 			}
@@ -151,4 +179,3 @@ $(document).ready(function(){
 
 	}
 });
-
