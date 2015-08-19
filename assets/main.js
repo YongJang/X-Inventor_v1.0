@@ -56,10 +56,16 @@ $(document).ready(function(){
 		//mouseY = event.pageY;//-offset.top;
 	//});	
 	//드롭시 이벤트 설정
+	$('.sidebar').droppable({
+		accept:".inputContent, .outputContent",
+		drop:function(){
+			$sc.fadeOut();
+		}
+	});
 
 	$('.board').droppable({
 		hoverClass:'boardOver',
-		accept: ".input, #onBoard .inputContent, .output, .item, #onBoard .outputContent, outputBoxOver",
+		accept: ".input, #onBoard .inputContent, .output",
 		//보드에 아이템을 올려놨을 때
 		over:function(){
 			if($sc.hasClass('output')){
@@ -98,6 +104,7 @@ $(document).ready(function(){
 						if($sc.hasClass('output')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 							$('#outputID'+outputNum).css('position','relative');
+							$sc.removeClass('outputBoxOver');
 							outputNum++;
 						}
 					},
