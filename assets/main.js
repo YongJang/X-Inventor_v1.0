@@ -60,6 +60,8 @@ $(document).ready(function(){
 		accept:".inputContent, .outputContent",
 		drop:function(){
 			$sc.fadeOut();
+			$sc.removeClass('outputOver');
+			$sc.removeClass('inputOver');
 		}
 	});
 	
