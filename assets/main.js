@@ -87,17 +87,27 @@ $(document).ready(function(){
 				});
 				$("#inputID"+inputNum).droppable({
 					accept:".output",
+					over:function(){
+						if($sc.hasClass('output')){
+							$sc.addClass('outputBoxOver');
+						}
+					},
 					drop:function(){
 						if($sc.hasClass('output')){
 							$(this).append('<div class="outputContent">'+contents+'</div>');
+							$('#outputID'+outputNum).css('position','relative');
 						}
+					},
+					out:function(){
+						$sc.removeClass('outputBoxOver');
 					}
 				});
 				inputNum++;				
 			}
-			if($sc.hasClass('output') && !($sc.hasClass('outputContent'))){
+			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-				$('#outputID'+outputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY+'px'});
+				$('#outputID'+outputNum).css('position','absolute');
+				$('#outputID'+outputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#outputID"+outputNum).draggable({
 					snap:'.outputContent',
 					snapMode:'outer',
