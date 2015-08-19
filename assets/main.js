@@ -12,6 +12,7 @@ $(document).ready(function(){
 	var mouseBoxY;
 	
 	$('.board').css('height',height);
+
 	$('#create').css('width',width/8);
 	$('#simulating').css('width',width/8);	
 	
@@ -133,3 +134,4 @@ $(document).ready(function(){
 
 	}
 });
+
