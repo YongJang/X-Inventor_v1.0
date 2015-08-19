@@ -95,9 +95,9 @@ $(document).ready(function(){
 				});
 				inputNum++;				
 			}
-			if($sc.hasClass('output') && !($sc.hasClass('outputContent'))){
+			else if($sc.hasClass('output') && !($sc.hasClass('outputContent'))){
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-				$('#outputID'+outputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY+'px'});
+				$('#outputID'+outputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#outputID"+outputNum).draggable({
 					snap:'.outputContent',
 					snapMode:'outer',
