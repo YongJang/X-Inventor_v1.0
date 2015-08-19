@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var width = $(window).width();
 	var colWidth=$(window).width()/6;
 	var inputNum=0;
+	var outputNum=0;
 	var mouseX;
 	var mouseY;
 	var mouseBoxX;
@@ -40,7 +41,7 @@ $(document).ready(function(){
 		drag:function(event){
 			mouseX = event.pageX;//-offset.left;
 			mouseY = event.pageY;//-offset.top;
-			$('.input').mousemove(function(event,position){
+			$(".input, .output").mousemove(function(event,position){
 				var offset = $(this).offset();
 				mouseBoxX=event.pageX-offset.left;
 				mouseBoxY=event.pageY-offset.top;
@@ -56,7 +57,7 @@ $(document).ready(function(){
 	//드롭시 이벤트 설정
 	$('.board').droppable({
 		hoverClass:'boardOver',
-		accept: ".input, #onBoard .inputContent",
+		accept: ".input, #onBoard .inputContent, .output",
 		//보드에 아이템을 올려놨을 때
 		over:function(){
 			if($sc.hasClass('output')){
@@ -92,8 +93,22 @@ $(document).ready(function(){
 						}
 					}
 				});
-				inputNum+=1;				
-			}			
+				inputNum++;				
+			}
+			if($sc.hasClass('output') && !($sc.hasClass('outputContent'))){
+				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+				$('#outputID'+outputNum).css({'left':(mouseX-colWidth-mouseBoxX)+'px', 'top':mouseY+'px'});
+				$("#outputID"+outputNum).draggable({
+					snap:'.outputContent',
+					snapMode:'outer',
+					containment:'document',
+					start:function(event){
+						contents = $(this).text();
+						$sc=$(this);
+					}
+				});
+				outputNum++;
+			}
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
 		}
