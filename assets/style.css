@@ -49,6 +49,10 @@
 .item:hover{
 	cursor: pointer;
 }
+.item{
+	width: 150px;
+	height: 30px;
+}
 
 .input:hover{
 	border-radius: 5px;
@@ -56,6 +60,7 @@
 	-webkit-transition: background .5s;
 	-moz-transition: background .5s;
 	-o-transition: background .5s;
+	transition: background .5s;
 }
 
 .output:hover{
@@ -64,6 +69,7 @@
 	-webkit-transition: background .5s;
 	-moz-transition: background .5s;
 	-o-transition: background .5s;
+	transition: background .5s;
 }
 .process{
 	align: center;
