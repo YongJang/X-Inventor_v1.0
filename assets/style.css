@@ -87,6 +87,7 @@
 	text-align:center;
 	padding: 5px;
 	margin: 5px;
+	box-shadow: 3px 3px 10px #000000;
 }
 
 .outputOver{
@@ -98,6 +99,7 @@
 	vertical-align:center;
 	padding: 5px;
 	margin: 5px;
+	box-shadow: 3px 3px 10px #000000;
 }
 
 .inputContent{
@@ -112,6 +114,7 @@
 	vertical-align:center;
 	padding: 5px;
 	margin: 5px;
+	box-shadow: 3px 3px 10px #000000;
 }
 .outputContent{
 	position:relative;
@@ -124,6 +127,7 @@
 	padding: 5px;
 	margin: 5px;
 	display:block;
+	box-shadow: 3px 3px 10px #000000;
 }
 
 .inputContent:hover,
