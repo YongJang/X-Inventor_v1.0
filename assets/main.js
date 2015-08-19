@@ -92,20 +92,20 @@ $(document).ready(function(){
 					start:function(event){
 						$('.garbage').animate({
 							top: "0px"
-						}, 200);
+						}, 175);
 						$('.board').animate({
 							top: "50px"
-						}, 200);
+						}, 175);
 						contents = $(this).text();
 						$sc=$(this);
 					},
 					stop:function(){
 						$('.garbage').animate({
 							top: "-50px"
-						}, 200);
+						}, 175);
 						$('.board').animate({
 							top: "0px"
-						}, 200);
+						}, 175);
 					}				
 				});
 				$("#inputID"+inputNum).droppable({
@@ -148,20 +148,20 @@ $(document).ready(function(){
 					start:function(event){
 						$('.garbage').animate({
 							top: "0px"
-						}, 200);
+						}, 175);
 						$('.board').animate({
 							top: "50px"
-						}, 200);
+						}, 175);
 						contents = $(this).text();
 						$sc=$(this);
 					},
 					stop:function(){
 						$('.garbage').animate({
 							top: "-50px"
-						}, 200);
+						}, 175);
 						$('.board').animate({
 							top: "0px"
-						}, 200);
+						}, 175);
 					}				
 				});
 				outputNum++;
