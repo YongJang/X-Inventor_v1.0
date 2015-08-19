@@ -56,18 +56,7 @@ $(document).ready(function(){
 		//mouseY = event.pageY;//-offset.top;
 	//});	
 	//드롭시 이벤트 설정
-<<<<<<< HEAD
-	$('.sidebar').droppable({
-		accept:".inputContent, .outputContent",
-		drop:function(){
-			$sc.removeClass('inputContent');
-			$sc.removeClass('outputBoxOver');
-			$sc.fadeOut();
-		}
-	});
-	
-=======
->>>>>>> parent of a17c69d... main.js
+
 	$('.board').droppable({
 		hoverClass:'boardOver',
 		accept: ".input, #onBoard .inputContent, .output, .item, #onBoard .outputContent, outputBoxOver",
