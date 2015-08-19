@@ -59,15 +59,15 @@ $(document).ready(function(){
 	$('.sidebar').droppable({
 		accept:".inputContent, .outputContent",
 		drop:function(){
+			$sc.removeClass('inputContent');
+			$sc.removeClass('outputBoxOver');
 			$sc.fadeOut();
-			$sc.removeClass('outputOver');
-			$sc.removeClass('inputOver');
 		}
 	});
 	
 	$('.board').droppable({
 		hoverClass:'boardOver',
-		accept: ".input, #onBoard .inputContent, .output",
+		accept: ".input, #onBoard .inputContent, .output, .item, .outputContent",
 		//보드에 아이템을 올려놨을 때
 		over:function(){
 			if($sc.hasClass('output')){
@@ -112,6 +112,7 @@ $(document).ready(function(){
 						$sc.removeClass('outputBoxOver');
 					}
 				});
+				
 				inputNum++;				
 			}
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
