@@ -80,6 +80,8 @@
 	margin: 0 auto;
 }
 #simulating{	
+	margin-bottom: 3px;
+	padding-bottom: 3px;
 	background-color: #337ab7;
 }
 #create{
@@ -123,10 +125,10 @@
 	box-shadow: 3px 3px 10px #000000;
 }
 .outputContent{
-	position:relative;
 	width: 150px;
 	height: 50px;
 	border-radius: 5px;
+	position:absolute;
 	background-color: #f0ad4e;
 	text-align:center;
 	vertical-align:center;
