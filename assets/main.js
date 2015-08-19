@@ -3,7 +3,11 @@ $(document).ready(function(){
 	
 	var height = $(window).height();
 	var width = $(window).width();
+<<<<<<< HEAD
 	var colWidth = $('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
+=======
+	var colWidth=$('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
+>>>>>>> origin/master
 	var inputNum=0;
 	var outputNum=0;
 	var mouseX;
