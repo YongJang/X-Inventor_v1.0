@@ -72,19 +72,20 @@
 	transition: background .5s;
 }
 .process{
-	align: center;
 	color: #ffffff;
+	padding: 10px;
+	margin: 10px;
+	bottom: 0px;
 	height: 50px;
 	width: 100%;
-	padding: 10px;
-	margin: 0 auto;
+	
 }
 #simulating{	
-	margin-bottom: 3px;
-	padding-bottom: 3px;
+	padding: 5px 10px 10px 10px;
 	background-color: #337ab7;
 }
 #create{
+	padding: 5px 10px 10px 10px;
 	background-color: #f0ad4e;
 }
 .inputOver{
