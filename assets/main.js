@@ -67,7 +67,7 @@ $(document).ready(function(){
 	
 	$('.board').droppable({
 		hoverClass:'boardOver',
-		accept: ".input, #onBoard .inputContent, .output, .item, .outputContent",
+		accept: ".input, #onBoard .inputContent, .output, .item, #onBoard .outputContent, outputBoxOver",
 		//보드에 아이템을 올려놨을 때
 		over:function(){
 			if($sc.hasClass('output')){
@@ -104,8 +104,9 @@ $(document).ready(function(){
 					},
 					drop:function(){
 						if($sc.hasClass('output')){
-							$(this).append('<div class="outputContent">'+contents+'</div>');
+							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 							$('#outputID'+outputNum).css('position','relative');
+							outputNum++;
 						}
 					},
 					out:function(){
