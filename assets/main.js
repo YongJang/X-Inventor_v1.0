@@ -3,7 +3,7 @@ $(document).ready(function(){
 	
 	var height = $(window).height();
 	var width = $(window).width();
-	var colWidth=$(window).width()/6;
+	var colWidth=$('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
 	var inputNum=0;
 	var outputNum=0;
 	var mouseX;
