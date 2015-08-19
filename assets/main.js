@@ -56,6 +56,13 @@ $(document).ready(function(){
 		//mouseY = event.pageY;//-offset.top;
 	//});	
 	//드롭시 이벤트 설정
+	$('.sidebar').droppable({
+		accept:".inputContent, .outputContent",
+		drop:function(){
+			$sc.fadeOut();
+		}
+	});
+	
 	$('.board').droppable({
 		hoverClass:'boardOver',
 		accept: ".input, #onBoard .inputContent, .output",
