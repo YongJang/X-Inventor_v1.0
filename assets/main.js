@@ -77,6 +77,7 @@ $(document).ready(function(){
 			$sc.fadeOut(100).delay(200).queue(function(){
 			       $(this).hide();
 		    });
+			$sc.remove();
 		}
 	});
 
