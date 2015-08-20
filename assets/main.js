@@ -61,26 +61,18 @@ $(document).ready(function(){
 	//});	
 	//드롭시 이벤트 설정
 	$('.garbage').droppable({
-		hoverClass:'garbageOver',
 		accept:".inputContent, .outputContent",
+		tolerance:"touch",
 		drop:function(){
-			$sc.fadeOut(100).delay(200).queue(function(){
-			       $(this).hide();
-		    });
 			$sc.remove();
-
-		},
+		}
 	});
 	$('.sidebar').droppable({
 		accept:".inputContent, .outputContent",
 		drop:function(){
-			$sc.fadeOut(100).delay(200).queue(function(){
-			       $(this).hide();
-		    });
+			$sc.remove();
 		}
 	});
-
-
 	$('.board').droppable({
 		hoverClass:'boardOver',
 		accept: ".input, #onBoard .inputContent, .output",
@@ -117,9 +109,8 @@ $(document).ready(function(){
 						$sc=$(this);
 					},
 					drag:function(event){
-						mouseX = event.pageX;
-						mouseY = event.pageY;
-						if(-5<mouseY<100){
+						mouseY = event.pageY;//-offset.top;
+						if(mouseY<100){
 							$('.garbage').css({'height':50+(100-mouseY)+'px'});
 						}else{
 							$('.garbage').css({'height':50+'px'});
@@ -127,12 +118,12 @@ $(document).ready(function(){
 					},
 					stop:function(){
 						$('.garbage').animate({
-							top: "-50px"
+							top: "-50px",
+							height: "50px"
 						}, 175);
 						$('.board').animate({
 							top: "0px"
 						}, 175);
-						$('.garbage').css({'height':50+'px'});
 					}				
 				});
 				$("#inputID"+inputNum).droppable({
@@ -179,7 +170,7 @@ $(document).ready(function(){
 									mouseBoxX=event.pageX-offset.left;
 									mouseBoxY=event.pageY-offset.top;
 								});
-								if(-5<mouseY<100){
+								if(mouseY<100){
 									$('.garbage').css({'height':50+(100-mouseY)+'px'});
 								}else{
 									$('.garbage').css({'height':50+'px'});
@@ -187,7 +178,8 @@ $(document).ready(function(){
 							},
 							stop:function(){
 								$('.garbage').animate({
-									top: "-50px"
+									top: "-50px",
+									height: "50px"
 								}, 175);
 								$('.board').animate({
 									top: "0px"
@@ -212,9 +204,8 @@ $(document).ready(function(){
 										$sc=$(this);
 									},
 									drag:function(event){
-										mouseX = event.pageX;
-										mouseY = event.pageY;
-										if(-5<mouseY<100){
+										mouseY = event.pageY;//-offset.top;
+										if(mouseY<100){
 											$('.garbage').css({'height':50+(100-mouseY)+'px'});
 										}else{
 											$('.garbage').css({'height':50+'px'});
@@ -222,12 +213,12 @@ $(document).ready(function(){
 									},
 									stop:function(){
 										$('.garbage').animate({
-											top: "-50px"
+											top: "-50px",
+											height: "50px"
 										}, 175);
 										$('.board').animate({
 											top: "0px"
 										}, 175);
-										$('.garbage').css({'height':50+'px'});
 									}
 								});
 								outputNum++;
@@ -260,7 +251,6 @@ $(document).ready(function(){
 						$sc=$(this);
 					},
 					drag:function(event){
-						mouseX = event.pageX;//-offset.left;
 						mouseY = event.pageY;//-offset.top;
 						if(mouseY<100){
 							$('.garbage').css({'height':50+(100-mouseY)+'px'});
@@ -270,12 +260,12 @@ $(document).ready(function(){
 					},
 					stop:function(){
 						$('.garbage').animate({
-							top: "-50px"
+							top: "-50px",
+							height: "50px"
 						}, 175);
 						$('.board').animate({
 							top: "0px"
 						}, 175);
-						$('.garbage').css({'height':50+'px'});
 					}
 				});
 				outputNum++;
