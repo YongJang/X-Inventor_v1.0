@@ -148,3 +148,9 @@
 }
 #onBoard{
 }
+
+#center{
+	display:fixed;
+	width:auto;
+	height:auto;
+}

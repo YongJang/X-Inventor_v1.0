@@ -12,10 +12,14 @@ $(document).ready(function(){
 	var mouseBoxX;
 	var mouseBoxY;
 	var widthG = $('.col-md-8').css('width').replace(/[^-\d\.]/g, '');
+	var heightG = $('.board').css('height').replace(/[^-\d\.]/g, '');
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
 	$('#create').css('width', width/8);
 	$('#simulating').css('width', width/8);	
+	$('#center').css({'width' : widthG, 'left' : colWidth+'px'});
+	$('#center').css({'height' : heightG, 'top' : '0px'});
+	
 	
 	var droppableArray = ['.board'];
 	droppableString = "";
@@ -57,7 +61,7 @@ $(document).ready(function(){
 		//mouseY = event.pageY;//-offset.top;
 	//});	
 	//드롭시 이벤트 설정
-	$('.sidebar').droppable({
+	$('.garbage').droppable({
 		accept:".inputContent, .outputContent",
 		drop:function(){
 			$sc.fadeOut();
@@ -86,9 +90,9 @@ $(document).ready(function(){
 				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
 				$('#inputID'+inputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#inputID"+inputNum).draggable({
+					containment:'document',
 					snap:'.inputContent',
 					snapMode:'outer',
-					containment:'document',
 					start:function(event){
 						$('.garbage').animate({
 							top: "0px"
@@ -142,9 +146,9 @@ $(document).ready(function(){
 				$('#outputID'+outputNum).css('position','fixed');
 				$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#outputID"+outputNum).draggable({
+					containment:'document',
 					snap:'.outputContent',
 					snapMode:'outer',
-					containment:'document',
 					start:function(event){
 						$('.garbage').animate({
 							top: "0px"
