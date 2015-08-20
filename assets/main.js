@@ -19,6 +19,7 @@ $(document).ready(function(){
 	$('.detail').css({'top' : height-200+'px', 'left' : ((widthG/2)-150)+'px'})
 	
 	
+	
 	var droppableArray = ['.board'];
 	droppableString = "";
 	
@@ -60,14 +61,26 @@ $(document).ready(function(){
 	//});	
 	//드롭시 이벤트 설정
 	$('.garbage').droppable({
+		hoverClass:'garbageOver',
 		accept:".inputContent, .outputContent",
 		drop:function(){
 			$sc.fadeOut(100).delay(200).queue(function(){
 			       $(this).hide();
 		    });
 			$sc.remove();
+
+		},
+	});
+	$('.sidebar').droppable({
+		accept:".inputContent, .outputContent",
+		drop:function(){
+			$sc.fadeOut(100).delay(200).queue(function(){
+			       $(this).hide();
+		    });
 		}
 	});
+
+
 	$('.board').droppable({
 		hoverClass:'boardOver',
 		accept: ".input, #onBoard .inputContent, .output",
@@ -103,6 +116,15 @@ $(document).ready(function(){
 						contents = $(this).text();
 						$sc=$(this);
 					},
+					drag:function(event){
+						mouseX = event.pageX;
+						mouseY = event.pageY;
+						if(-5<mouseY<100){
+							$('.garbage').css({'height':50+(100-mouseY)+'px'});
+						}else{
+							$('.garbage').css({'height':50+'px'});
+						}
+					},
 					stop:function(){
 						$('.garbage').animate({
 							top: "-50px"
@@ -110,6 +132,7 @@ $(document).ready(function(){
 						$('.board').animate({
 							top: "0px"
 						}, 175);
+						$('.garbage').css({'height':50+'px'});
 					}				
 				});
 				$("#inputID"+inputNum).droppable({
@@ -156,6 +179,11 @@ $(document).ready(function(){
 									mouseBoxX=event.pageX-offset.left;
 									mouseBoxY=event.pageY-offset.top;
 								});
+								if(-5<mouseY<100){
+									$('.garbage').css({'height':50+(100-mouseY)+'px'});
+								}else{
+									$('.garbage').css({'height':50+'px'});
+								}
 							},
 							stop:function(){
 								$('.garbage').animate({
@@ -183,6 +211,15 @@ $(document).ready(function(){
 										contents = $(this).text();
 										$sc=$(this);
 									},
+									drag:function(event){
+										mouseX = event.pageX;
+										mouseY = event.pageY;
+										if(-5<mouseY<100){
+											$('.garbage').css({'height':50+(100-mouseY)+'px'});
+										}else{
+											$('.garbage').css({'height':50+'px'});
+										}
+									},
 									stop:function(){
 										$('.garbage').animate({
 											top: "-50px"
@@ -190,6 +227,7 @@ $(document).ready(function(){
 										$('.board').animate({
 											top: "0px"
 										}, 175);
+										$('.garbage').css({'height':50+'px'});
 									}
 								});
 								outputNum++;
@@ -221,6 +259,15 @@ $(document).ready(function(){
 						contents = $(this).text();
 						$sc=$(this);
 					},
+					drag:function(event){
+						mouseX = event.pageX;//-offset.left;
+						mouseY = event.pageY;//-offset.top;
+						if(mouseY<100){
+							$('.garbage').css({'height':50+(100-mouseY)+'px'});
+						}else{
+							$('.garbage').css({'height':50+'px'});
+						}
+					},
 					stop:function(){
 						$('.garbage').animate({
 							top: "-50px"
@@ -228,6 +275,7 @@ $(document).ready(function(){
 						$('.board').animate({
 							top: "0px"
 						}, 175);
+						$('.garbage').css({'height':50+'px'});
 					}
 				});
 				outputNum++;
