@@ -148,9 +148,12 @@
 }
 #onBoard{
 }
-
-#center{
-	display:fixed;
-	width:auto;
-	height:auto;
+.detail{
+	box-shadow: 3px 3px 10px #000000;
+	background-color: #6d5595;
+	border-radius: 5px;
+	min-height:200px;
+	min-width:300px;
+	position:absolute;
+	text-align:center;
 }

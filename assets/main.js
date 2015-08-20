@@ -15,9 +15,8 @@ $(document).ready(function(){
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
 	$('#create').css('width', width/8);
-	$('#simulating').css('width', width/8);	
-	$('#center').css({'width' : widthG, 'left' : colWidth+'px'});
-	$('#center').css({'height' : heightG, 'top' : '0px'});
+	$('#simulating').css('width', width/8);
+	$('.detail').css({'top' : height-200+'px', 'left' : ((widthG/2)-150)+'px'})
 	
 	
 	var droppableArray = ['.board'];
@@ -69,7 +68,6 @@ $(document).ready(function(){
 			$sc.remove();
 		}
 	});
-
 	$('.board').droppable({
 		hoverClass:'boardOver',
 		accept: ".input, #onBoard .inputContent, .output",
