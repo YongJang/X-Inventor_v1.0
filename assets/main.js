@@ -4,7 +4,6 @@ $(document).ready(function(){
 	var height = $(window).height();
 	var width = $(window).width();
 	var colWidth = $('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
-	var colWidth=$('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
 	var inputNum=0;
 	var outputNum=0;
 	var mouseX;
@@ -62,11 +61,25 @@ $(document).ready(function(){
 	//});	
 	//드롭시 이벤트 설정
 	$('.garbage').droppable({
+		hoverClass:'garbageOver',
 		accept:".inputContent, .outputContent",
 		drop:function(){
-			$sc.fadeOut();
+			$sc.fadeOut(100).delay(200).queue(function(){
+			       $(this).hide();
+		    });
+			$sc.remove();
+		},
+	});
+	$('.sidebar').droppable({
+		accept:".inputContent, .outputContent",
+		drop:function(){
+			$sc.fadeOut(100).delay(200).queue(function(){
+			       $(this).hide();
+		    });
+			$sc.remove();
 		}
 	});
+
 
 	$('.board').droppable({
 		hoverClass:'boardOver',
@@ -103,6 +116,15 @@ $(document).ready(function(){
 						contents = $(this).text();
 						$sc=$(this);
 					},
+					drag:function(event){
+						mouseX = event.pageX;
+						mouseY = event.pageY;
+						if(-5<mouseY<100){
+							$('.garbage').css({'height':50+(100-mouseY)+'px'});
+						}else{
+							$('.garbage').css({'height':50+'px'});
+						}
+					},
 					stop:function(){
 						$('.garbage').animate({
 							top: "-50px"
@@ -110,6 +132,7 @@ $(document).ready(function(){
 						$('.board').animate({
 							top: "0px"
 						}, 175);
+						$('.garbage').css({'height':50+'px'});
 					}				
 				});
 				$("#inputID"+inputNum).droppable({
@@ -120,25 +143,102 @@ $(document).ready(function(){
 						}
 					},
 					drop:function(){
-						if($sc.hasClass('output') && !$sc.hasClass('outputContent')){
+						if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							$('#outputID'+outputNum).addClass("moved");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
-							outputNum++;
 						}
-						else if($sc.hasClass('outputContent')){
+						else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							$('#outputID'+outputNum).addClass("moved");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
 							$sc.remove();
-							outputNum++;
 						}
+						$("#outputID"+outputNum).draggable({
+							containment:'document',
+							snap:'.outputContent',
+							snapMode:'outer',
+							start:function(event){								
+								$('#outputID'+outputNum).css('position','fixed');
+								$('.garbage').animate({
+									top: "0px"
+								}, 175);
+								$('.board').animate({
+									top: "50px"
+								}, 175);
+								contents = $(this).text();
+								$sc=$(this);
+							},
+							drag:function(event){
+								mouseX = event.pageX;//-offset.left;
+								mouseY = event.pageY;//-offset.top;
+								$(".output, .outputContent").mousemove(function(event,position){
+									var offset = $(this).offset();
+									mouseBoxX=event.pageX-offset.left;
+									mouseBoxY=event.pageY-offset.top;
+								});
+								if(-5<mouseY<100){
+									$('.garbage').css({'height':50+(100-mouseY)+'px'});
+								}else{
+									$('.garbage').css({'height':50+'px'});
+								}
+							},
+							stop:function(){
+								$('.garbage').animate({
+									top: "-50px"
+								}, 175);
+								$('.board').animate({
+									top: "0px"
+								}, 175);
+								$sc.remove();
+								outputNum++;
+								$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
+								$('#outputID'+outputNum).css('position','fixed');
+								$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+								$("#outputID"+outputNum).draggable({
+									containment:'document',
+									snap:'.outputContent',
+									snapMode:'outer',
+									start:function(event){
+										$('.garbage').animate({
+											top: "0px"
+										}, 175);
+										$('.board').animate({
+											top: "50px"
+										}, 175);
+										contents = $(this).text();
+										$sc=$(this);
+									},
+									drag:function(event){
+										mouseX = event.pageX;
+										mouseY = event.pageY;
+										if(-5<mouseY<100){
+											$('.garbage').css({'height':50+(100-mouseY)+'px'});
+										}else{
+											$('.garbage').css({'height':50+'px'});
+										}
+									},
+									stop:function(){
+										$('.garbage').animate({
+											top: "-50px"
+										}, 175);
+										$('.board').animate({
+											top: "0px"
+										}, 175);
+										$('.garbage').css({'height':50+'px'});
+									}
+								});
+								outputNum++;
+							}
+						});
+						outputNum++;
 					},
 					out:function(){
 						$sc.removeClass('outputBoxOver');
 					}
-				});
-				
+				});				
 				inputNum++;				
 			}
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
@@ -159,6 +259,15 @@ $(document).ready(function(){
 						contents = $(this).text();
 						$sc=$(this);
 					},
+					drag:function(event){
+						mouseX = event.pageX;//-offset.left;
+						mouseY = event.pageY;//-offset.top;
+						if(mouseY<100){
+							$('.garbage').css({'height':50+(100-mouseY)+'px'});
+						}else{
+							$('.garbage').css({'height':50+'px'});
+						}
+					},
 					stop:function(){
 						$('.garbage').animate({
 							top: "-50px"
@@ -166,7 +275,8 @@ $(document).ready(function(){
 						$('.board').animate({
 							top: "0px"
 						}, 175);
-					}				
+						$('.garbage').css({'height':50+'px'});
+					}
 				});
 				outputNum++;
 			}
@@ -174,10 +284,10 @@ $(document).ready(function(){
 			$sc.removeClass('inputOver');
 		}
 	});
-	
+	$
 	$('.btn').on('click', function(){
 		var $btn = $(this).button('loading');
-		$btn.button('reset')
+		$btn.button('reset');
 	});
 
 	function put(){

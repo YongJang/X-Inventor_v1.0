@@ -8,6 +8,15 @@
 	text-align: center;
 	padding: 10px 10px 10px 10px;
 }
+.garbageOver{
+	padding: 0;
+	top: -50px;
+	left:0px;
+	position: fixed;
+	background-color: #ff8080;
+	text-align: center;
+	padding: 10px 10px 10px 10px;
+}
 .board{
 	color:#ffffff;
 	background-color:#404040;
