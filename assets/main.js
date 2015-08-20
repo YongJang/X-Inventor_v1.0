@@ -4,7 +4,6 @@ $(document).ready(function(){
 	var height = $(window).height();
 	var width = $(window).width();
 	var colWidth = $('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
-	var colWidth=$('.col-md-2').css('width').replace(/[^-\d\.]/g, '');
 	var inputNum=0;
 	var outputNum=0;
 	var mouseX;
@@ -64,7 +63,10 @@ $(document).ready(function(){
 	$('.garbage').droppable({
 		accept:".inputContent, .outputContent",
 		drop:function(){
-			$sc.fadeOut();
+			$sc.fadeOut(100).delay(200).queue(function(){
+			       $(this).hide();
+		    });
+			$sc.remove();
 		}
 	});
 
@@ -120,25 +122,87 @@ $(document).ready(function(){
 						}
 					},
 					drop:function(){
-						if($sc.hasClass('output') && !$sc.hasClass('outputContent')){
+						if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							$('#outputID'+outputNum).addClass("moved");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
-							outputNum++;
 						}
-						else if($sc.hasClass('outputContent')){
+						else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							$('#outputID'+outputNum).addClass("moved");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
 							$sc.remove();
-							outputNum++;
 						}
+						$("#outputID"+outputNum).draggable({
+							containment:'document',
+							snap:'.outputContent',
+							snapMode:'outer',
+							start:function(event){								
+								$('#outputID'+outputNum).css('position','fixed');
+								$('.garbage').animate({
+									top: "0px"
+								}, 175);
+								$('.board').animate({
+									top: "50px"
+								}, 175);
+								contents = $(this).text();
+								$sc=$(this);
+							},
+							drag:function(event){
+								mouseX = event.pageX;//-offset.left;
+								mouseY = event.pageY;//-offset.top;
+								$(".output, .outputContent").mousemove(function(event,position){
+									var offset = $(this).offset();
+									mouseBoxX=event.pageX-offset.left;
+									mouseBoxY=event.pageY-offset.top;
+								});
+							},
+							stop:function(){
+								$('.garbage').animate({
+									top: "-50px"
+								}, 175);
+								$('.board').animate({
+									top: "0px"
+								}, 175);
+								$sc.remove();
+								outputNum++;
+								$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
+								$('#outputID'+outputNum).css('position','fixed');
+								$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+								$("#outputID"+outputNum).draggable({
+									containment:'document',
+									snap:'.outputContent',
+									snapMode:'outer',
+									start:function(event){
+										$('.garbage').animate({
+											top: "0px"
+										}, 175);
+										$('.board').animate({
+											top: "50px"
+										}, 175);
+										contents = $(this).text();
+										$sc=$(this);
+									},
+									stop:function(){
+										$('.garbage').animate({
+											top: "-50px"
+										}, 175);
+										$('.board').animate({
+											top: "0px"
+										}, 175);
+									}
+								});
+								outputNum++;
+							}
+						});
+						outputNum++;
 					},
 					out:function(){
 						$sc.removeClass('outputBoxOver');
 					}
-				});
-				
+				});				
 				inputNum++;				
 			}
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
@@ -166,7 +230,7 @@ $(document).ready(function(){
 						$('.board').animate({
 							top: "0px"
 						}, 175);
-					}				
+					}
 				});
 				outputNum++;
 			}
@@ -174,10 +238,10 @@ $(document).ready(function(){
 			$sc.removeClass('inputOver');
 		}
 	});
-	
+	$
 	$('.btn').on('click', function(){
 		var $btn = $(this).button('loading');
-		$btn.button('reset')
+		$btn.button('reset');
 	});
 
 	function put(){
