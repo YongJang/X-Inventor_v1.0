@@ -204,19 +204,6 @@ select {
     background-color: white;
     cursor: default;
 }
-input, textarea, keygen, select, button {
-    margin: 0em;
-    font: normal normal normal normal 12px/normal Arial;
-    text-rendering: auto;
-    color: initial;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-}
 .row-fluid {
     width: 70%;
 }
