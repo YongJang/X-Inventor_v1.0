@@ -171,43 +171,6 @@ body{font-family:'Roboto', sans-serif;font-size:18px;color:#404040}p{line-height
 	min-width:250px;
 	position:relative;
 }
-option {
-    font-weight: normal;
-}
-option {
-    font-weight: normal;
-    display: block;
-    padding: 0px 2px 1px;
-    white-space: pre;
-    min-height: 1.2em;
-}
-eygen, select, select[size="0"], select[size="1"] {
-    border-radius: 0px;
-    border-color: rgb(169, 169, 169);
-}
-select:not(:-internal-list-box) {
-    overflow: visible;
-}
-select {
-    -webkit-appearance: menulist;
-    box-sizing: border-box;
-    align-items: center;
-    border: 1px solid;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    white-space: pre;
-    -webkit-rtl-ordering: logical;
-    color: black;
-    background-color: white;
-    cursor: default;
-}
-.row-fluid {
-    width: 70%;
-}
-
 .outputToggle{
 	width: 150px;
 	height: 50px;
