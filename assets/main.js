@@ -160,9 +160,11 @@ $(document).ready(function(){
 						$("#outputID"+outputNum).click(function(){
 
 							$(this).parent().parent().find('div').removeClass("outputToggle");
-							detailInput = $(this).parent().find('inputContent').text();
+							detailInput = $(this).parent().val();
 							$(this).toggleClass("outputToggle",1,function(){
 								detailOutput = $(this).text();
+								$('.detail').append("<li>"+detailInput+"</li>");
+								$('.detail').append("<li>"+detailOutput+"</li>");
 							});
 						});
 						$("#outputID"+outputNum).draggable({
