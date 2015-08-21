@@ -163,8 +163,8 @@ $(document).ready(function(){
 							detailInput = $(this).parent().val();
 							$(this).toggleClass("outputToggle",1,function(){
 								detailOutput = $(this).text();
-								$('.detail li').first().text(detailInput);
-								$('.detail li').last().text(detailOutput);
+								$('.detail').append("<li>"+detailInput+"</li>");
+-								$('.detail').append("<li>"+detailOutput+"</li>");
 							});
 						});
 						$("#outputID"+outputNum).draggable({
