@@ -207,16 +207,6 @@ select {
 .row-fluid {
     width: 70%;
 }
-:after, :before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-::selection {
-    color: #fff;
-    text-shadow: none;
-    background: #0085a1;
-}
 
 .outputToggle{
 	width: 150px;
