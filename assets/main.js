@@ -18,7 +18,8 @@ $(document).ready(function(){
 	$('#simulating').css({'width' : (width/8)+20, 'top' : height-70+'px'});
 	$('.detail').css({'top' : height-200+'px', 'left' : ((widthG/2)-150)+'px'});
 	
-	
+	var detailInput;
+	var detailOutput;
 	
 	var droppableArray = ['.board'];
 	droppableString = "";
@@ -127,7 +128,7 @@ $(document).ready(function(){
 					}				
 				});
 				$("#inputID"+inputNum).droppable({
-					accept:".output, .outputContent",
+					accept:".output, .outputContent, outputToggle",
 					over:function(){
 						if($sc.hasClass('output')){
 							$sc.addClass('outputBoxOver');
@@ -136,17 +137,27 @@ $(document).ready(function(){
 					drop:function(){
 						if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							//$('#outputID'+outputNum).addClass("selectable");
 							$('#outputID'+outputNum).addClass("moved");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
 						}
 						else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							//$('#outputID'+outputNum).addClass("selectable");
 							$('#outputID'+outputNum).addClass("moved");
 							$('#outputID'+outputNum).css('position','relative');
 							$sc.removeClass('outputBoxOver');
 							$sc.remove();
 						}
+						$("#outputID"+outputNum).click(function(){
+
+							$(this).parent().parent().find('div').removeClass("outputToggle");
+							detailInput = $(this).parent().find('inputContent').text();
+							$(this).toggleClass("outputToggle",1,function(){
+								detailOutput = $(this).text();
+							});
+						});
 						$("#outputID"+outputNum).draggable({
 							containment:'document',
 							snap:'.outputContent',

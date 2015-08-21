@@ -164,6 +164,7 @@ body{font-family:'Roboto', sans-serif;font-size:20px;color:#404040}p{line-height
 	position:absolute;
 	z-index:1;
 }
+<<<<<<< HEAD
 .value{
 	margin: 10px;
 	padding: 10px;
@@ -230,3 +231,18 @@ input, textarea, keygen, select, button {
     text-shadow: none;
     background: #0085a1;
 }
+=======
+
+.outputToggle{
+	width: 150px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #ff8040;
+	text-align:center;
+	vertical-align:center;
+	padding: 5px;
+	margin: 5px;
+	display:block;
+	box-shadow: 3px 3px 10px #000000;
+}
+>>>>>>> origin/master
