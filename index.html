@@ -27,7 +27,7 @@
 	 		 <div class="container-fluid">
 				<div class="row">
 					<div class="col-sm-3 col-md-2 sidebar">
-						<div class="input-sidebar"><h2 class="title">INPUT</h2></div>
+						<div class="input-sidebar"><h2 class="title"><label>INPUT</label></h2></div>
 						<ul class="nav nav-sidebar">						
 							<li class="input item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-232-sun.png"> Brightness</h4></li>
 							<li class="input item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-69-ruler.png"> Length</h4></li>
@@ -44,7 +44,7 @@
 						</ul>
 						<div class="process">
 							<button type="button" id="simulating" data-loading-text="Loading..." class="btn">
-								<h2>Simulating</h2>
+								<h3>Simulating</h3>
 							</button>
 						</div>
 					</div>
@@ -52,23 +52,39 @@
 						<div class="garbage"><img src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-17-bin.png"></div>
 						<h3 id="draw"></h3>
 						<div class="detail">
-							<h2 class="title">DETAIL</h2>
-							<table class="table">
-								<thead>
-									<tr>
-										<th>Light</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>1</td>
-									</tr>
-								</tbody>
-							</table>
+							<h2 class="title"><label>DETAIL</label></h2>
 						</div>
-					</div>
+						<!-- 
+						<div class="detail">
+							<span><h2 class="title">DETAIL</h2></span>
+							<div class="value">
+								<div class="row-fluid">
+                  					<div class="control-group span6">
+                  						<label for="">Brightness</label>
+               				   	 		<select name="light[type]" class="form-control input-lg">
+              				           	<option value=""></option>
+                   				        <option value="0">Daytime</option>
+                   				      	<option value="1">Midnight</option>
+                   				      	<option value="2">Night</option>
+                   				      	<option value="3">Laser</option>
+                   				      	<option value="4">LED</option>
+                       				</select>
+                       			</div>
+                   			</div>
+							<div class="row-fluid">								
+								<div class="control-group span6">
+									<label for="">Length</label>
+                  	    			<div class="input-group input-group-lg">
+                    	            	<input name="length" type="text" class="form-control">
+                        	    		<span class="input-group-addon">CM</span>
+                            		</div>
+                       			</div>
+               				</div>
+						</div>
+					</div> -->
+				</div>
 				<div class="col-sm-3 col-md-2 sidebar">
-					<div class="output-sidebar"><h2 class="title">OUTPUT</h2></div>
+					<div class="output-sidebar"><h2 class="title"><label>OUTPUT</label></h2></div>
 					<ul class="nav nav-sidebar">
 						<li class="output item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-185-volume-up.png"> Speaker</h4></li>
 						<li class="output item"><h4><img id="glyphicons" src="https://s3-ap-northeast-1.amazonaws.com/projectxinventor/resources/img/glyphicons-138-cogwheels.png"> Movement</h4></li>
@@ -82,7 +98,7 @@
 					</ul>
 					<div class="process">
 						<button type="button" id="create" data-loading-text="Loading..." class="btn">
-							<h2>Create</h2>
+							<h3>Create</h3>
 						</button>
 					</div>
 				</div>
