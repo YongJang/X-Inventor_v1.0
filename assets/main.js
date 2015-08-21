@@ -53,6 +53,11 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
+	$('.detail').draggable({
+		containment:'document'
+	});
+	
 	//마우스 좌표 인식
 	//$('document').mousemove(function(event,position){
 		//var offset = $(this).offset();

@@ -160,4 +160,5 @@
 	min-width:300px;
 	position:absolute;
 	text-align:center;
+	z-index:1;
 }
