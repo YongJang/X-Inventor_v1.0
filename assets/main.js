@@ -14,9 +14,15 @@ $(document).ready(function(){
 	var heightG = $('.board').css('height').replace(/[^-\d\.]/g, '');
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
+
 	$('#create').css('width', width/8);
 	$('#simulating').css('width', width/8);
 	$('.detail').css({'top' : height-200+'px', 'left' : ((widthG/2)-150)+'px'})
+
+	$('#create').css({'width' : (width/8)+20, 'top' : height-70+'px'});
+	$('#simulating').css({'width' : (width/8)+20, 'top' : height-70+'px'});
+	$('.detail').css({'top' : height-200+'px', 'left' : ((widthG/2)-150)+'px'});
+
 	
 	var detailInput;
 	var detailOutput;
@@ -34,6 +40,10 @@ $(document).ready(function(){
 	for(var i=0;i<draggableArray.length;i++){
 		draggableString+=', '+draggableArray[i];
 	}
+	
+	$('.detail').draggable({
+		containment:'document'
+	});
 	//드래그시 이벤트 설정
 	$('.item').draggable({
 		//cursorAt:{top:-2,left:-2},
@@ -54,11 +64,6 @@ $(document).ready(function(){
 			});
 		}
 	});
-	
-	$('.detail').draggable({
-		containment:'document'
-	});
-	
 	//마우스 좌표 인식
 	//$('document').mousemove(function(event,position){
 		//var offset = $(this).offset();
