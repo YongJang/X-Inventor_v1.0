@@ -231,7 +231,6 @@ input, textarea, keygen, select, button {
     text-shadow: none;
     background: #0085a1;
 }
-=======
 
 .outputToggle{
 	width: 150px;
@@ -245,4 +244,3 @@ input, textarea, keygen, select, button {
 	display:block;
 	box-shadow: 3px 3px 10px #000000;
 }
->>>>>>> origin/master
