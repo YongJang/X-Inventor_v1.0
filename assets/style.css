@@ -65,7 +65,8 @@ body{font-family:Lora,'Times New Roman',serif;font-size:20px;color:#404040}p{lin
 }
 .item{
 	width: 150px;
-	height: 30px;
+	height: 28px;
+	vertical-align: center;
 }
 
 .input:hover{
