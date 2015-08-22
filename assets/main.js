@@ -201,6 +201,7 @@ $(document).ready(function(){
 		//보드에 드롭했을 때
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
+<<<<<<< HEAD
 				if($sc.text() === " Brightness"){
 					var newObj = new Brightness("daytime");
 				}else if($sc.text() === " Length"){
@@ -211,6 +212,74 @@ $(document).ready(function(){
 					newObj.prototype = new InputItem();
 					newObj.setID(inputNum);
 					inputArray[newObj.getID()] = newObj;
+=======
+				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
+				$('#inputID'+inputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+				$("#inputID"+inputNum).draggable({
+					containment:'document',
+					snap:'.inputContent',
+					snapMode:'outer',
+					start:function(event){
+						$('.garbage').animate({
+							top: "0px"
+						}, 175);
+						$('.board').animate({
+							top: "50px"
+						}, 175);
+						contents = $(this).text();
+						$sc=$(this);
+					},
+					drag:function(event){
+						mouseY = event.pageY;//-offset.top;
+						if(mouseY<100){
+							$('.garbage').css({'height':50+(100-mouseY)+'px'});
+						}else{
+							$('.garbage').css({'height':50+'px'});
+						}
+					},
+					stop:function(){
+						$('.garbage').animate({
+							top: "-50px",
+							height: "50px"
+						}, 175);
+						$('.board').animate({
+							top: "0px"
+						}, 175);
+					}				
+				});
+				$("#inputID"+inputNum).droppable({
+					accept:".output, .outputContent, outputToggle",
+					over:function(){
+						if($sc.hasClass('output')){
+							$sc.addClass('outputBoxOver');
+						}
+					},
+					drop:function(){
+						if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
+							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							//$('#outputID'+outputNum).addClass("selectable");
+							$('#outputID'+outputNum).addClass("moved");
+							$('#outputID'+outputNum).css('position','relative');
+							$sc.removeClass('outputBoxOver');
+						}
+						else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
+							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+							//$('#outputID'+outputNum).addClass("selectable");
+							$('#outputID'+outputNum).addClass("moved");
+							$('#outputID'+outputNum).css('position','relative');
+							$sc.removeClass('outputBoxOver');
+							$sc.remove();
+						}
+						$("#outputID"+outputNum).click(function(){
+							$(this).parent().parent().find('div').removeClass("outputToggle");
+							detailInput = $(this).parent().val();
+							$(this).toggleClass("outputToggle",1,function(){
+								detailOutput = $(this).text();
+								$('.detail').append("<li>"+detailInput+"</li>");
+								$('.detail').append("<li>"+detailOutput+"</li>");
+							});
+						});
+>>>>>>> origin/master
 					
 					//확인 코드//
 					var i= inputArray[newObj.getID()].draw();
