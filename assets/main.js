@@ -163,7 +163,7 @@ $(document).ready(function(){
 							$(this).toggleClass("outputToggle",1,function(){
 								detailOutput = $(this).text();
 								$('.detail').append("<li>"+detailInput+"</li>");
--								$('.detail').append("<li>"+detailOutput+"</li>");
+								$('.detail').append("<li>"+detailOutput+"</li>");
 							});
 						});
 					
