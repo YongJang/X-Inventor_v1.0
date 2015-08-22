@@ -92,6 +92,16 @@ $(document).ready(function(){
 			return "<div id='inputID"+this.id+"' class='inputContent'> Acceleration</div>";
 		};
 	};
+	function Humidity(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Humidity</div>";
+		};
+	};
+	function Temperature(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Temperature</div>";
+		};
+	};
 	
 	
 	Brightness.prototype = new InputItem();
@@ -104,6 +114,8 @@ $(document).ready(function(){
 	Color.prototype = new InputItem();
 	Slope.prototype = new InputItem();
 	Acceleration.prototype = new InputItem();
+	Humidity.prototype = new InputItem();
+	Temperature.prototype = new InputItem();
 	
 	
 	///////////////////
@@ -205,8 +217,26 @@ $(document).ready(function(){
 					var newObj = new Brightness("daytime");
 				}else if($sc.text() === " Length"){
 					var newObj = new Length();
+				}else if($sc.text() === " Compass"){
+					var newObj = new Compass();
+				}else if($sc.text() === " Heart beat"){
+					var newObj = new Heartbeat();
+				}else if($sc.text() === " Sound"){
+					var newObj = new Sound();
+				}else if($sc.text() === " Time"){
+					var newObj = new Time();
+				}else if($sc.text() === " Rotation"){
+					var newObj = new Rotation();
+				}else if($sc.text() === " Color"){
+					var newObj = new Color();
+				}else if($sc.text() === " Acceleration"){
+					var newObj = new Acceleration();
+				}else if($sc.text() === " Slope"){
+					var newObj = new Slope();
+				}else if($sc.text() === " Humidity"){
+					var newObj = new Humidity();
 				}else{
-					var newObj = new Brightness("daytime");
+					var newObj = new Temperature();
 				}
 					newObj.prototype = new InputItem();
 					newObj.setID(inputNum);
