@@ -21,9 +21,10 @@ $(document).ready(function(){
 			this.setID = function(id){
 				this.id = id;
 			};
+			this.outputList = new Array();
 	};
 	
-	function outputItem(){
+	function OutputItem(){
 		//this.InputItem = new Object();
 		//var ID;
 		//this.getID = function(){
@@ -102,8 +103,18 @@ $(document).ready(function(){
 			return "<div id='inputID"+this.id+"' class='inputContent'> Temperature</div>";
 		};
 	};
+	////////////////////////////////////////////////////////////////////////////////
+	function Speaker(){};
+	function Movement(){};
+	function Light(){};
+	function Vibration(){};
+	function SaveData(){};
+	function HA(){};
+	function Waterpump(){};
+	function Display(){};
+	function Heater(){};
 	
-	
+	///////////////////////////////////////////////////////////////////////////////////
 	Brightness.prototype = new InputItem();
 	Length.prototype = new InputItem();
 	Compass.prototype = new InputItem();
@@ -116,6 +127,16 @@ $(document).ready(function(){
 	Acceleration.prototype = new InputItem();
 	Humidity.prototype = new InputItem();
 	Temperature.prototype = new InputItem();
+	///////////////////////////////////////////////////////////////
+	Speaker.prototype = new OutputItem();
+	Movement.prototype = new OutputItem();
+	Light.prototype = new OutputItem();
+	Vibration.prototype = new OutputItem();
+	SaveData.prototype = new OutputItem();
+	HA.prototype = new OutputItem();
+	Waterpump.prototype = new OutputItem();
+	Display.prototype = new OutputItem();
+	Heater.prototype = new OutputItem();
 	
 	
 	///////////////////
