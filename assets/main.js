@@ -39,6 +39,10 @@ $(document).ready(function(){
 	};
 	
 	function Length(){
+		this.detectingLength = 0;	//default setting
+		this.selectedLengthUnit = "mm";	//default setting
+		this.resolution = 0;	//default setting
+		this.selectedResolutionUnit = "default";
 		this.draw = function(){
 			return "<div id='inputID"+this.id+"' class='inputContent'> Length</div>";
 		};
@@ -57,17 +61,37 @@ $(document).ready(function(){
 	};
 	
 	function Sound(){
-		
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Sound</div>";
+		};
 	};
 	
 	function Time(){
-		
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Time</div>";
+		};
 	};
 	
-	function Rotation(){};
-	function Color(){};
-	function Slope(){};
-	function Acceleration(){};
+	function Rotation(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Rotation</div>";
+		};
+	};
+	function Color(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Color</div>";
+		};
+	};
+	function Slope(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Slope</div>";
+		};
+	};
+	function Acceleration(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Acceleration</div>";
+		};
+	};
 	
 	
 	Brightness.prototype = new InputItem();
