@@ -12,6 +12,83 @@ $(document).ready(function(){
 	var mouseBoxY;
 	var widthG = $('.col-md-8').css('width').replace(/[^-\d\.]/g, '');
 	var heightG = $('.board').css('height').replace(/[^-\d\.]/g, '');
+	/** 객체 선언 **/
+	function InputItem(){
+			this.id=0;
+			this.getID = function(){
+				return this.id;
+			};
+			this.setID = function(id){
+				this.id = id;
+			};
+	};
+	
+	function outputItem(){
+		//this.InputItem = new Object();
+		//var ID;
+		//this.getID = function(){
+		//	return ID;
+		//};
+	};
+	
+	function Brightness(defaultset){
+		this.detectingBrightness = defaultset;
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Brightness</div>";
+		};
+	};
+	
+	function Length(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Length</div>";
+		};
+	};
+	
+	function Compass(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Compass</div>";
+		};
+	};
+	
+	function Heartbeat(){
+		this.draw = function(){
+			return "<div id='inputID"+this.id+"' class='inputContent'> Heartbeat</div>";
+		};
+	};
+	
+	function Sound(){
+		
+	};
+	
+	function Time(){
+		
+	};
+	
+	function Rotation(){};
+	function Color(){};
+	function Slope(){};
+	function Acceleration(){};
+	
+	
+	Brightness.prototype = new InputItem();
+	Length.prototype = new InputItem();
+	Compass.prototype = new InputItem();
+	Heartbeat.prototype = new InputItem();
+	Sound.prototype = new InputItem();
+	Time.prototype = new InputItem();
+	Rotation.prototype = new InputItem();
+	Color.prototype = new InputItem();
+	Slope.prototype = new InputItem();
+	Acceleration.prototype = new InputItem();
+	
+	
+	///////////////////
+	///객체를 저장하는 배열///
+	var inputArray = [];
+	var outputArray = new Array();
+
+	
+	//////////////////
 	
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
@@ -100,157 +177,174 @@ $(document).ready(function(){
 		//보드에 드롭했을 때
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
-				$('#draw').append("<div id='inputID"+inputNum+"' class='inputContent'>"+contents+"</div>");
-				$('#inputID'+inputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
-				$("#inputID"+inputNum).draggable({
-					containment:'document',
-					snap:'.inputContent',
-					snapMode:'outer',
-					start:function(event){
-						$('.garbage').animate({
-							top: "0px"
-						}, 175);
-						$('.board').animate({
-							top: "50px"
-						}, 175);
-						contents = $(this).text();
-						$sc=$(this);
-					},
-					drag:function(event){
-						mouseY = event.pageY;//-offset.top;
-						if(mouseY<100){
-							$('.garbage').css({'height':50+(100-mouseY)+'px'});
-						}else{
-							$('.garbage').css({'height':50+'px'});
-						}
-					},
-					stop:function(){
-						$('.garbage').animate({
-							top: "-50px",
-							height: "50px"
-						}, 175);
-						$('.board').animate({
-							top: "0px"
-						}, 175);
-					}				
-				});
-				$("#inputID"+inputNum).droppable({
-					accept:".output, .outputContent, outputToggle",
-					over:function(){
-						if($sc.hasClass('output')){
-							$sc.addClass('outputBoxOver');
-						}
-					},
-					drop:function(){
-						if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
-							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-							//$('#outputID'+outputNum).addClass("selectable");
-							$('#outputID'+outputNum).addClass("moved");
-							$('#outputID'+outputNum).css('position','relative');
-							$sc.removeClass('outputBoxOver');
-						}
-						else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
-							$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-							//$('#outputID'+outputNum).addClass("selectable");
-							$('#outputID'+outputNum).addClass("moved");
-							$('#outputID'+outputNum).css('position','relative');
-							$sc.removeClass('outputBoxOver');
-							$sc.remove();
-						}
-						$("#outputID"+outputNum).click(function(){
-							$(this).parent().parent().find('div').removeClass("outputToggle");
-							detailInput = $(this).parent().val();
-							$(this).toggleClass("outputToggle",1,function(){
-								detailOutput = $(this).text();
-								$('.detail').append("<li>"+detailInput+"</li>");
--								$('.detail').append("<li>"+detailOutput+"</li>");
-							});
-						});
+				if($sc.text() === " Brightness"){
+					var newObj = new Brightness("daytime");
+				}else if($sc.text() === " Length"){
+					var newObj = new Length();
+				}else{
+					var newObj = new Brightness("daytime");
+				}
+					newObj.prototype = new InputItem();
+					newObj.setID(inputNum);
+					inputArray[newObj.getID()] = newObj;
 					
-						$("#outputID"+outputNum).draggable({
-							containment:'document',
-							snap:'.outputContent',
-							snapMode:'outer',
-							start:function(event){								
-								$('#outputID'+outputNum).css('position','fixed');
-								$('.garbage').animate({
-									top: "0px"
-								}, 175);
-								$('.board').animate({
-									top: "50px"
-								}, 175);
-								contents = $(this).text();
-								$sc=$(this);
-							},
-							drag:function(event){
-								mouseX = event.pageX;//-offset.left;
-								mouseY = event.pageY;//-offset.top;
-								$(".output, .outputContent").mousemove(function(event,position){
-									var offset = $(this).offset();
-									mouseBoxX=event.pageX-offset.left;
-									mouseBoxY=event.pageY-offset.top;
-								});
-								if(mouseY<100){
-									$('.garbage').css({'height':50+(100-mouseY)+'px'});
-								}else{
-									$('.garbage').css({'height':50+'px'});
-								}
-							},
-							stop:function(){
-								$('.garbage').animate({
-									top: "-50px",
-									height: "50px"
-								}, 175);
-								$('.board').animate({
-									top: "0px"
-								}, 175);
-								$sc.remove();
-								outputNum++;
-								$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
-								$('#outputID'+outputNum).css('position','fixed');
-								$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
-								$("#outputID"+outputNum).draggable({
-									containment:'document',
-									snap:'.outputContent',
-									snapMode:'outer',
-									start:function(event){
-										$('.garbage').animate({
-											top: "0px"
-										}, 175);
-										$('.board').animate({
-											top: "50px"
-										}, 175);
-										contents = $(this).text();
-										$sc=$(this);
-									},
-									drag:function(event){
-										mouseY = event.pageY;//-offset.top;
-										if(mouseY<100){
-											$('.garbage').css({'height':50+(100-mouseY)+'px'});
-										}else{
-											$('.garbage').css({'height':50+'px'});
-										}
-									},
-									stop:function(){
-										$('.garbage').animate({
-											top: "-50px",
-											height: "50px"
-										}, 175);
-										$('.board').animate({
-											top: "0px"
-										}, 175);
-									}
-								});
-								outputNum++;
+					//확인 코드//
+					var i= inputArray[newObj.getID()].draw();
+					prompt(i);
+					//////////
+					
+					$('#draw').append(newObj.draw());
+					$('#inputID'+newObj.getID()).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+					$("#inputID"+newObj.getID()).draggable({
+						containment:'document',
+						snap:'.inputContent',
+						snapMode:'outer',
+						start:function(event){
+							$('.garbage').animate({
+								top: "0px"
+							}, 175);
+							$('.board').animate({
+								top: "50px"
+							}, 175);
+							contents = $(this).text();
+							$sc=$(this);
+						},
+						drag:function(event){
+							mouseY = event.pageY;//-offset.top;
+							if(mouseY<100){
+								$('.garbage').css({'height':50+(100-mouseY)+'px'});
+							}else{
+								$('.garbage').css({'height':50+'px'});
 							}
-						});
-						outputNum++;
-					},
-					out:function(){
-						$sc.removeClass('outputBoxOver');
-					}
-				});				
-				inputNum++;				
+						},
+						stop:function(){
+							$('.garbage').animate({
+								top: "-50px",
+								height: "50px"
+							}, 175);
+							$('.board').animate({
+								top: "0px"
+							}, 175);
+						}				
+					});
+					$("#inputID"+newObj.getID()).droppable({
+						accept:".output, .outputContent, outputToggle",
+						over:function(){
+							if($sc.hasClass('output')){
+								$sc.addClass('outputBoxOver');
+							}
+						},
+						drop:function(){
+							if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
+								$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+								//$('#outputID'+outputNum).addClass("selectable");
+								$('#outputID'+outputNum).addClass("moved");
+								$('#outputID'+outputNum).css('position','relative');
+								$sc.removeClass('outputBoxOver');
+							}
+							else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
+								$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
+								//$('#outputID'+outputNum).addClass("selectable");
+								$('#outputID'+outputNum).addClass("moved");
+								$('#outputID'+outputNum).css('position','relative');
+								$sc.removeClass('outputBoxOver');
+								$sc.remove();
+							}
+							$("#outputID"+outputNum).click(function(){
+								$(this).parent().parent().find('div').removeClass("outputToggle");
+								detailInput = $(this).parent().val();
+								$(this).toggleClass("outputToggle",1,function(){
+									detailOutput = $(this).text();
+									$('.detail').append("<li>"+detailInput+"</li>");
+									$('.detail').append("<li>"+detailOutput+"</li>");
+								});
+							});
+						
+							$("#outputID"+outputNum).draggable({
+								containment:'document',
+								snap:'.outputContent',
+								snapMode:'outer',
+								start:function(event){								
+									$('#outputID'+outputNum).css('position','fixed');
+									$('.garbage').animate({
+										top: "0px"
+									}, 175);
+									$('.board').animate({
+										top: "50px"
+									}, 175);
+									contents = $(this).text();
+									$sc=$(this);
+								},
+								drag:function(event){
+									mouseX = event.pageX;//-offset.left;
+									mouseY = event.pageY;//-offset.top;
+									$(".output, .outputContent").mousemove(function(event,position){
+										var offset = $(this).offset();
+										mouseBoxX=event.pageX-offset.left;
+										mouseBoxY=event.pageY-offset.top;
+									});
+									if(mouseY<100){
+										$('.garbage').css({'height':50+(100-mouseY)+'px'});
+									}else{
+										$('.garbage').css({'height':50+'px'});
+									}
+								},
+								stop:function(){
+									$('.garbage').animate({
+										top: "-50px",
+										height: "50px"
+									}, 175);
+									$('.board').animate({
+										top: "0px"
+									}, 175);
+									$sc.remove();
+									outputNum++;
+									$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
+									$('#outputID'+outputNum).css('position','fixed');
+									$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+									$("#outputID"+outputNum).draggable({
+										containment:'document',
+										snap:'.outputContent',
+										snapMode:'outer',
+										start:function(event){
+											$('.garbage').animate({
+												top: "0px"
+											}, 175);
+											$('.board').animate({
+												top: "50px"
+											}, 175);
+											contents = $(this).text();
+											$sc=$(this);
+										},
+										drag:function(event){
+											mouseY = event.pageY;//-offset.top;
+											if(mouseY<100){
+												$('.garbage').css({'height':50+(100-mouseY)+'px'});
+											}else{
+												$('.garbage').css({'height':50+'px'});
+											}
+										},
+										stop:function(){
+											$('.garbage').animate({
+												top: "-50px",
+												height: "50px"
+											}, 175);
+											$('.board').animate({
+												top: "0px"
+											}, 175);
+										}
+									});
+									outputNum++;
+								}
+							});
+							outputNum++;
+						},
+						out:function(){
+							$sc.removeClass('outputBoxOver');
+						}
+					});	
+				inputNum++;		
+				
 			}
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
@@ -292,6 +386,7 @@ $(document).ready(function(){
 			}
 			$sc.removeClass('outputOver');
 			$sc.removeClass('inputOver');
+		
 		}
 	});
 	$
