@@ -21,21 +21,15 @@ $(document).ready(function(){
 			this.setID = function(id){
 				this.id = id;
 			};
-			this.outputList = new Array();
 	};
 	
 	function outputItem(){
-		this.InputItem = new Object();
-		this.id=0;
-		this.getID = function(){
-			return this.id;
-		};
-		this.setID = function(id){
-			this.id = id;
-		};
+		//this.InputItem = new Object();
+		//var ID;
+		//this.getID = function(){
+		//	return ID;
+		//};
 	};
-	
-	/////////////////////////////////////////////////////////////////////////////
 	
 	function Brightness(defaultset){
 		this.detectingBrightness = defaultset;
@@ -109,23 +103,7 @@ $(document).ready(function(){
 		};
 	};
 	
-	////////////////////////////////////////////////////////////////////////////////////////////
 	
-	function Speaker(){
-		
-	};
-	function Movement(){};
-	function Light(){};
-	function Vibration(){};
-	function SaveData(){};
-	function HA(){};
-	function Waterpump(){};
-	function Display(){};
-	function Heater(){};
-	
-	
-	////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////
 	Brightness.prototype = new InputItem();
 	Length.prototype = new InputItem();
 	Compass.prototype = new InputItem();
@@ -138,16 +116,7 @@ $(document).ready(function(){
 	Acceleration.prototype = new InputItem();
 	Humidity.prototype = new InputItem();
 	Temperature.prototype = new InputItem();
-	////////////////////////////////////////////////////////////////////////////////////////////
-	Speaker.prototype = new OutputItem();
-	Movement.prototype = new OutputItem();
-	Light.prototype = new OutputItem();
-	Vibration.prototype = new OutputItem();
-	SaveData.prototype = new OutputItem();
-	HA.prototype = new OutputItem();
-	Waterpump.prototype = new OutputItem();
-	Display.prototype = new OutputItem();
-	Heater.prototype = new OutputItem();
+	
 	
 	///////////////////
 	///객체를 저장하는 배열///
@@ -320,7 +289,6 @@ $(document).ready(function(){
 							}
 						},
 						drop:function(){
-							
 							if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
 								$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 								//$('#outputID'+outputNum).addClass("selectable");
