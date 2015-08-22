@@ -158,7 +158,6 @@ $(document).ready(function(){
 							$sc.remove();
 						}
 						$("#outputID"+outputNum).click(function(){
-
 							$(this).parent().parent().find('div').removeClass("outputToggle");
 							detailInput = $(this).parent().val();
 							$(this).toggleClass("outputToggle",1,function(){
@@ -167,6 +166,7 @@ $(document).ready(function(){
 -								$('.detail').append("<li>"+detailOutput+"</li>");
 							});
 						});
+					
 						$("#outputID"+outputNum).draggable({
 							containment:'document',
 							snap:'.outputContent',
