@@ -37,8 +37,8 @@ $(document).ready(function(){
 	};
 	
 	//////////////////////////////////////////////////////////////
-	function Brightness(defaultset){
-		this.detectingBrightness = defaultset;
+	function Brightness(){
+		this.detectingBrightness = "Daytime";
 		this.draw = function(){
 			return "<div id='inputID"+this.id+"' class='inputContent'> Brightness</div>";
 		};
@@ -252,7 +252,7 @@ $(document).ready(function(){
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				if($sc.text() === " Brightness"){
-					newObj = new Brightness("daytime");
+					newObj = new Brightness();
 				}else if($sc.text() === " Length"){
 					newObj = new Length();
 				}else if($sc.text() === " Compass"){
