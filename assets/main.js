@@ -389,8 +389,46 @@ $(document).ready(function(){
 									$('.board').animate({
 										top: "0px"
 									}, 175);
-									
+									$sc.remove();
+									outputNum++;
+									$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
+									$('#outputID'+outputNum).css('position','fixed');
+									$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+									$("#outputID"+outputNum).draggable({
+										containment:'document',
+										snap:'.outputContent',
+										snapMode:'outer',
+										start:function(event){
+											$('.garbage').animate({
+												top: "0px"
+											}, 175);
+											$('.board').animate({
+												top: "50px"
+											}, 175);
+											contents = $(this).text();
+											$sc=$(this);
+										},
+										drag:function(event){
+											mouseY = event.pageY;//-offset.top;
+											if(mouseY<100){
+												$('.garbage').css({'height':50+(100-mouseY)+'px'});
+											}else{
+												$('.garbage').css({'height':50+'px'});
+											}
+										},
+										stop:function(){
+											$('.garbage').animate({
+												top: "-50px",
+												height: "50px"
+											}, 175);
+											$('.board').animate({
+												top: "0px"
+											}, 175);
+										}
+									});
+									outputNum++;
 								}
+								
 							});
 							outputNum++;
 						},
@@ -404,45 +442,6 @@ $(document).ready(function(){
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){	//리스트에 있던 output이 보드에 드롭될 때
 				
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-				$('#outputID'+outputNum).css('position','fixed');
-				$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
-				$("#outputID"+outputNum).draggable({
-					containment:'document',
-					snap:'.outputContent',
-					snapMode:'outer',
-					start:function(event){
-						$('.garbage').animate({
-							top: "0px"
-						}, 175);
-						$('.board').animate({
-							top: "50px"
-						}, 175);
-						contents = $(this).text();
-						$sc=$(this);
-					},
-					drag:function(event){
-						mouseY = event.pageY;//-offset.top;
-						if(mouseY<100){
-							$('.garbage').css({'height':50+(100-mouseY)+'px'});
-						}else{
-							$('.garbage').css({'height':50+'px'});
-						}
-					},
-					stop:function(){
-						$('.garbage').animate({
-							top: "-50px",
-							height: "50px"
-						}, 175);
-						$('.board').animate({
-							top: "0px"
-						}, 175);
-					}
-				});
-				outputNum++;
-			}else if($sc.hasClass('output') && $sc.hasClass('moved')){		//input 안에 있던 output이 보드로 이동했을 때 
-				$sc.remove();
-				outputNum++;
-				$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
 				$('#outputID'+outputNum).css('position','fixed');
 				$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
 				$("#outputID"+outputNum).draggable({
