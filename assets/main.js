@@ -159,6 +159,10 @@ $(document).ready(function(){
 
 	
 	//////////////////
+	var newObj;	//inputItem을 저장할 변수
+	var newOut; //outoutItem을 저장할 변수
+	
+	//////////////////
 	
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
@@ -248,29 +252,29 @@ $(document).ready(function(){
 		drop:function(){
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				if($sc.text() === " Brightness"){
-					var newObj = new Brightness("daytime");
+					newObj = new Brightness("daytime");
 				}else if($sc.text() === " Length"){
-					var newObj = new Length();
+					newObj = new Length();
 				}else if($sc.text() === " Compass"){
-					var newObj = new Compass();
+					newObj = new Compass();
 				}else if($sc.text() === " Heart beat"){
-					var newObj = new Heartbeat();
+					newObj = new Heartbeat();
 				}else if($sc.text() === " Sound"){
-					var newObj = new Sound();
+					newObj = new Sound();
 				}else if($sc.text() === " Time"){
-					var newObj = new Time();
+					newObj = new Time();
 				}else if($sc.text() === " Rotation"){
-					var newObj = new Rotation();
+					newObj = new Rotation();
 				}else if($sc.text() === " Color"){
-					var newObj = new Color();
+					newObj = new Color();
 				}else if($sc.text() === " Acceleration"){
-					var newObj = new Acceleration();
+					newObj = new Acceleration();
 				}else if($sc.text() === " Slope"){
-					var newObj = new Slope();
+					newObj = new Slope();
 				}else if($sc.text() === " Humidity"){
-					var newObj = new Humidity();
+					newObj = new Humidity();
 				}else{
-					var newObj = new Temperature();
+					newObj = new Temperature();
 				}
 					newObj.prototype = new InputItem();
 					newObj.setID(inputNum);
@@ -435,6 +439,7 @@ $(document).ready(function(){
 				
 			}
 			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){	// output이 보드에 드롭될 때
+				
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 				$('#outputID'+outputNum).css('position','fixed');
 				$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
