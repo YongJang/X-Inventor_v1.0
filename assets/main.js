@@ -13,6 +13,7 @@ $(document).ready(function(){
 	var widthG = $('.col-md-8').css('width').replace(/[^-\d\.]/g, '');
 	var heightG = $('.board').css('height').replace(/[^-\d\.]/g, '');
 	/** 객체 선언 **/
+	// 부모 클래스
 	function InputItem(){
 			this.id=0;
 			this.getID = function(){
@@ -25,13 +26,17 @@ $(document).ready(function(){
 	};
 	
 	function OutputItem(){
-		//this.InputItem = new Object();
-		//var ID;
-		//this.getID = function(){
-		//	return ID;
-		//};
+		this.InputItem = new Object();
+		this.id=0;
+		this.getID = function(){
+			return this.id;
+		};
+		this.setID = function(id){
+			this.id = id;
+		};
 	};
 	
+	//////////////////////////////////////////////////////////////
 	function Brightness(defaultset){
 		this.detectingBrightness = defaultset;
 		this.draw = function(){
@@ -104,8 +109,16 @@ $(document).ready(function(){
 		};
 	};
 	////////////////////////////////////////////////////////////////////////////////
-	function Speaker(){};
-	function Movement(){};
+	function Speaker(){
+		this.draw = function(){
+			return "<div id = 'outputID"+this.id+"' class='outputContent'> Speaker</div>";
+		};
+	};
+	function Movement(){
+		this.draw = function(){
+			return "<div id = 'outputID"+this.id+"' class='outputContent'> Movement</div>";
+		};
+	};
 	function Light(){};
 	function Vibration(){};
 	function SaveData(){};
@@ -264,8 +277,8 @@ $(document).ready(function(){
 					inputArray[newObj.getID()] = newObj;
 					
 					//확인 코드//
-					var i= inputArray[newObj.getID()].draw();
-					prompt(i);
+					//var i= inputArray[newObj.getID()].draw();
+					//prompt(i);
 					//////////
 					
 					$('#draw').append(newObj.draw());
@@ -310,14 +323,14 @@ $(document).ready(function(){
 							}
 						},
 						drop:function(){
-							if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
+							if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){		//output이 바로 input으로 드롭될때
 								$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 								//$('#outputID'+outputNum).addClass("selectable");
 								$('#outputID'+outputNum).addClass("moved");
 								$('#outputID'+outputNum).css('position','relative');
 								$sc.removeClass('outputBoxOver');
 							}
-							else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){
+							else if($sc.hasClass('outputContent')&&!$sc.hasClass('moved')){							// 보드에 있던 output이 input으로 드롭될 때
 								$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 								//$('#outputID'+outputNum).addClass("selectable");
 								$('#outputID'+outputNum).addClass("moved");
@@ -421,7 +434,7 @@ $(document).ready(function(){
 				inputNum++;		
 				
 			}
-			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){
+			if($sc.hasClass('output') && !($sc.hasClass('outputContent')) && !($sc.hasClass('outputBoxOver'))){	// output이 보드에 드롭될 때
 				$('#draw').append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
 				$('#outputID'+outputNum).css('position','fixed');
 				$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
