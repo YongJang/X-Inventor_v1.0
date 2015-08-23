@@ -251,7 +251,7 @@ $(document).ready(function(){
 		},
 		//보드에 드롭했을 때
 		drop:function(){
-			if($sc.hasClass('output') && !$sc.hasClass('outputContent')){
+			if($sc.hasClass('output') && !$sc.hasClass('outputContent')){	//새로 생성되는  output 객체일 때 
 				if($sc.text() === " Speaker"){
 					newOut = new Speaker();
 				}else if($sc.text() === " Movement"){
