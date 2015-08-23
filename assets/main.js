@@ -260,8 +260,6 @@ $(document).ready(function(){
 				}
 				
 				newOut.prototype = new OutputItem();
-				
-				
 			}
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				if($sc.text() === " Brightness"){
@@ -341,14 +339,8 @@ $(document).ready(function(){
 							}
 						},
 						drop:function(){
-							
 							if($sc.hasClass('output') && !$sc.hasClass('outputContent')&&!$sc.hasClass('moved')){		//output이 바로 input으로 드롭될때
-								
 								$(this).append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");
-								var obj_id = $(this).find('#outputID'+outputNum).attr("id");
-								var sub = obj_id.substring(8,obj_id.length);
-								prompt(sub);
-								
 								//$('#outputID'+outputNum).addClass("selectable");
 								$('#outputID'+outputNum).addClass("moved");
 								$('#outputID'+outputNum).css('position','relative');
