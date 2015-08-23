@@ -262,7 +262,10 @@ $(document).ready(function(){
 				
 				newOut.prototype = new OutputItem();
 				newOut.savedClass = $sc;
-				prompt(newOut.savedClass.text());
+				newOut.setID(outputNum++);
+				var vID=newOut.getID();
+				newOut.savedClass.addClass("outputClass"+vID); 
+				prompt(newOut.savedClass.attr("class"));
 			}
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				if($sc.text() === " Brightness"){
