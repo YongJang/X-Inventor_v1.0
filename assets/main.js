@@ -250,6 +250,17 @@ $(document).ready(function(){
 		},
 		//보드에 드롭했을 때
 		drop:function(){
+			if($sc.hasClass('output')){
+				if($sc.text() === " Speaker"){
+					newOut = new Speaker();
+				}else if($sc.text() === " Movement"){
+					newOut = new Movement();
+				}else{
+					newOut = new Movement();
+				}
+				
+				newOut.prototype = new OutputItem();
+			}
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				if($sc.text() === " Brightness"){
 					newObj = new Brightness();
@@ -279,6 +290,7 @@ $(document).ready(function(){
 					newObj.prototype = new InputItem();
 					newObj.setID(inputNum);
 					inputArray[newObj.getID()] = newObj;
+
 					
 					//확인 코드//
 					//var i= inputArray[newObj.getID()].draw();
