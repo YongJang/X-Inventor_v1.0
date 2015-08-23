@@ -34,6 +34,7 @@ $(document).ready(function(){
 		this.setID = function(id){
 			this.id = id;
 		};
+		this.savedClass;
 	};
 	
 	//////////////////////////////////////////////////////////////
@@ -250,6 +251,19 @@ $(document).ready(function(){
 		},
 		//보드에 드롭했을 때
 		drop:function(){
+			if($sc.hasClass('output') && !$sc.hasClass('outputContent')){
+				if($sc.text() === " Speaker"){
+					newOut = new Speaker();
+				}else if($sc.text() === " Movement"){
+					newOut = new Movement();
+				}else{
+					newOut = new Movement();
+				}
+				
+				newOut.prototype = new OutputItem();
+				newOut.savedClass = $sc;
+				prompt(newOut.savedClass.text());
+			}
 			if($sc.hasClass('input') && !($sc.hasClass('inputContent'))){
 				if($sc.text() === " Brightness"){
 					newObj = new Brightness();
