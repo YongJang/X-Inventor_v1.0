@@ -87,12 +87,12 @@ body{font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-si
 	transition: background .5s;
 }
 .process{
+	position: absolute;
 	color: #ffffff;
 	margin-top: 10px;
-	height: 50px;
-	width: 100%;	
 }
-#simulating{	
+
+#simulate{	
 	padding: 5px 10px 10px 10px;
 	background-color: #337ab7;
 }
