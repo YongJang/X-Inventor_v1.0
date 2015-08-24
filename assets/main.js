@@ -168,8 +168,9 @@ $(document).ready(function(){
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
 
-	$('#create').css({'width' : (width/8)+20, 'top' : height-70+'px'});
-	$('#simulating').css({'width' : (width/8)+20, 'top' : height-70+'px'});
+	$('.process').css({'top' : height-100+'px'});
+	$('#simulate').css({'width' : (width/8)+20});
+	$('#create').css({'width' : (width/8)+20});
 	$('.detail').css({'top' : height-200+'px', 'left' : ((widthG/2)-150)+'px'});
 
 	
@@ -365,6 +366,7 @@ $(document).ready(function(){
 								detailInput = $(this).parent().val();
 								$(this).toggleClass("outputToggle",1,function(){
 									detailOutput = $(this).text();
+									
 									$('.detail').append("<li>"+detailInput+"</li>");
 									$('.detail').append("<li>"+detailOutput+"</li>");
 								});
@@ -502,7 +504,7 @@ $(document).ready(function(){
 		}
 	});
 	$
-	$('.btn').on('click', function(){
+	$('.process').on('click', function(){
 		var $btn = $(this).button('loading');
 		$btn.button('reset');
 	});
