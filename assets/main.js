@@ -220,10 +220,7 @@ $(document).ready(function(){
 	
 	$('.board').css('height', height);
 	$('.garbage').css({'width' : widthG, 'left' : colWidth+'px'});
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 	$('.process').css({'top' : height-100+'px'});
 	$('#simulate').css({'width' : (width/8)+20});
 	$('#create').css({'width' : (width/8)+20});
@@ -426,18 +423,14 @@ $(document).ready(function(){
 								
 								$(this).toggleClass("outputToggle",1,function(){
 									detailOutput = $(this).text();
-<<<<<<< HEAD
+
 									var text;
 									text = detailPrint(detailInput);
 									text = text+detailOutPrint(detailOutput);
 									$('.detail').find('tr').remove();
 									$('.detail table').append(text);
 									
-=======
-									
-									$('.detail').append("<li>"+detailInput+"</li>");
-									$('.detail').append("<li>"+detailOutput+"</li>");
->>>>>>> origin/master
+
 								});
 							});
 						
