@@ -199,7 +199,7 @@ $(document).ready(function(){
 		}else if(text === " Speaker"){
 			return "<tr>										<th><label>| Actuating loudness</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>dB</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Loudness resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>dB</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Actuating frequency</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>Hz</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Frequency resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>Hz</span>                        	    			</div>										</td>									</tr>";
 		}else if(text === " Vibration"){
-			return "<tr>										<th><label>|intensity</label></th>										<td class='selector'>											<select class='form-control input-lg'>                   				        		<option value='0'>High</option>                   				      			<option value='1'>Middle</option>                   				      			<option value='2'>Low</option>											</select>										</td>									</tr>";
+			return "<tr>										<th><label>| Intensity</label></th>										<td class='selector'>											<select class='form-control input-lg'>                   				        		<option value='0'>High</option>                   				      			<option value='1'>Middle</option>                   				      			<option value='2'>Low</option>											</select>										</td>									</tr>";
 		}else if(text === " Save Data"){
 			return "<tr>										<th><label>|Data type</label></th>										<td class='selector'>											<select class='form-control input-lg'>                   				        		<option value='0'>txt</option>                   				      			<option value='1'>Excel</option>                   				      			<option value='2'>Image</option>                   				      			<option value='3'>Video</option>											</select>										</td>									</tr>";
 		}else if(text === " H A"){
@@ -433,20 +433,35 @@ $(document).ready(function(){
 									text = detailPrint(detailInput);
 									text = text+detailOutPrint(detailOutput);
 									$('.detail').find('tr').remove();
-									$('.detail table').append(text);
-									$('#sel option').on('click', 'select', function(){
-										prompt($('#sel').val());
-										if($('#sel').val()==="R"){	
-											$('.detail table').append('<!-- Rotating --><tr><th><label>| Torque</label></th><td class="selector"><div class="input-group input-group-lg">											<input name="length" type="text" class="form-control" placeholder="0">                        	    			<span class="input-group-addon">kgf·cm</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Rotating speed</label></th>										<td class="selector">											<div class="input-group input-group-lg">										<input name="length" type="text" class="form-control" placeholder="0">                        	    			<span class="input-group-addon">rpm</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Direction</label></th>										<td class="selector">											<select class="form-control input-lg">                   				        		<option value="1">One</option>                  				      			<option value="2">Both</option>											</select>										</td>									</tr>									<tr>										<th><label>| Angle controllable</label></th>										<td class="selector">											<select class="form-control input-lg">                 				        		<option value="1">Yes</option>                  				      			<option value="2">No</option>											</select>										</td>									</tr>');
-										}
-										if($('#sel').val()==="L"){
-											$('.datail table').append('<!-- Linear --><tr><th><label>| Force</label></th><td class="selector"><div class="input-group input-group-lg">											<input name="length" type="text" class="form-control" placeholder="0">                       	    			<span class="input-group-addon">N</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Linear speed</label></th>										<td class="selector">											<div class="input-group input-group-lg">											<input name="length" type="text" class="form-control" placeholder="0">                        	    			<span class="input-group-addon">cm/s</span>                       	    			</div>										</td>									</tr>									<tr>										<th><label>| Actuating lenght</label></th>									<td class="selector">											<div class="input-group input-group-lg">											<input name="length" type="text" class="form-control" placeholder="0">                       	    			<span class="input-group-addon">cm</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Length resolution</label></th>										<td class="selector">											<div class="input-group input-group-lg">											<input name="length" type="text" class="form-control" placeholder="0">                        	    			<span class="input-group-addon">cm</span>                        	    			</div>										</td>									</tr>');
-										}
-										if($('#sel').val()==="A"){
-											$('.datail table').append('<!-- Angle --><tr><th><label>| Torque</label></th><td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">kgf·cm</span>		                        	    			</div>												</td>											</tr>											<tr>												<th><label>| Angular speed</label></th>											<td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">º/s</span>		                        	    			</div>												</td>											</tr>											<tr>												<th><label>| Actuating angle</label></th>												<td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">º</span>		                        	    			</div>												</td>											</tr>											<tr>												<th><label>| Angle resolution</label></th>												<td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">º</span>		                        	    			</div>												</td>											</tr>');
-										}
+									$('.detail table').append(text);		
+									prompt($("#sel option").length);
+									var idx;
+									$('#sel option').live('click', function(){	
+											idx = $("#sel option").length - $("#sel option:selected").index(); 
+											prompt(idx);
+											switch(idx){
+												case 1: 
+													$('#L').remove();
+													$('#A').remove();
+													$('.detail table').append('<!-- Rotating --><tr id="R"><th><label>| Torque</label></th><td class="selector"><div class="input-group input-group-lg">											<input name="length" type="text" class="form-control" placeholder="0">                        	    			<span class="input-group-addon">kgf·cm</span>                        	    			</div>										</td>									</tr>									<tr id="R">										<th><label>| Rotating speed</label></th>										<td class="selector">											<div class="input-group input-group-lg">										<input name="length" type="text" class="form-control" placeholder="0">                        	    			<span class="input-group-addon">rpm</span>                        	    			</div>										</td>									</tr>									<tr id="R">										<th><label>| Direction</label></th>										<td class="selector">											<select class="form-control input-lg">                   				        		<option value="1">One</option>                  				      			<option value="2">Both</option>											</select>										</td>									</tr>									<tr id="R">										<th><label>| Angle controllable</label></th>										<td class="selector">											<select class="form-control input-lg">                 				        		<option value="1">Yes</option>                  				      			<option value="2">No</option>											</select>										</td>									</tr>');
+													break;
+												case 2:
+													$('#L').remove();
+													$('#A').remove();
+													$('.detail table').append('<!-- Linear -->							<tr>							<th><label>| Force</label></th>							<td class="selector"><div class="input-group input-group-lg">								<input name="length" type="text" class="form-control" placeholder="0"><span class="input-group-addon">N</span>            	    			</div></td>						</tr>					<tr>							<th><label>| Linear speed</label></th><td class="selector">								<div class="input-group input-group-lg">								<input name="length" type="text" class="form-control" placeholder="0"><span class="input-group-addon">cm/s</span>           	    			</div>							</td>						</tr>						<tr>							<th><label>| Actuating lenght</label></th>							<td class="selector">								<div class="input-group input-group-lg">								<input name="length" type="text" class="form-control" placeholder="0">            	    			<span class="input-group-addon">cm</span>            	    			</div>							</td>						</tr>						<tr>							<th><label>| Length resolution</label></th>							<td class="selector">								<div class="input-group input-group-lg">								<input name="length" type="text" class="form-control" placeholder="0">            	    			<span class="input-group-addon">cm</span>            	    			</div>							</td>						</tr>');
+								            	    break;
+												case 3:
+													$('#L').remove();
+													$('#R').remove();
+													$('.datail table').append('<!-- Angle --><tr id="A"><th><label>| Torque</label></th><td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">kgf·cm</span>		                        	    			</div>												</td>											</tr>											<tr id="A">												<th><label>| Angular speed</label></th>											<td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">º/s</span>		                        	    			</div>												</td>											</tr>											<tr id="A">												<th><label>| Actuating angle</label></th>												<td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">º</span>		                        	    			</div>												</td>											</tr>											<tr id="A">												<th><label>| Angle resolution</label></th>												<td class="selector">													<div class="input-group input-group-lg">													<input name="length" type="text" class="form-control" placeholder="0">		                        	    			<span class="input-group-addon">º</span>		                        	    			</div>												</td>											</tr>');
+													break;
+												default:
+													alert("Nonono");
+													break;
+											}
 									});
 								});
+								
 							});
 							
 							$("#outputID"+outputNum).draggable({
@@ -579,7 +594,7 @@ $(document).ready(function(){
 			$sc.removeClass('inputOver');
 		}
 	});
-
+	
 	$('.process').on('click', function(){
 		var $btn = $(this).button('loading');
 		$btn.button('reset');
