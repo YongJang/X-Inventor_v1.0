@@ -434,7 +434,7 @@ $(document).ready(function(){
 									text = text+detailOutPrint(detailOutput);
 									$('.detail').find('tr').remove();
 									$('.detail table').append(text);		
-									prompt($("#sel option").length);
+									//prompt($("#sel option").length);
 									var idx;
 									$('#sel option').live('click', function(){	
 											idx = $("#sel option").length - $("#sel option:selected").index(); 
