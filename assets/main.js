@@ -433,8 +433,14 @@ $(document).ready(function(){
 									//prompt($("#sel option").length);
 									var idx;
 									var text2="";
-									$(document).on('click', '#sel option', function(){
+									$(document).on('change', '#sel', function(){
 										idx = $("#sel option").length - $("#sel option:selected").index(); 
+										for(var i=0; i<5;i++){
+											$('.detail').find('#R').remove();
+											$('.detail').find('#L').remove();
+											$('.detail').find('#A').remove();
+										}
+										
 										text2="";
 										switch(idx){
 											case 1: 
@@ -449,7 +455,7 @@ $(document).ready(function(){
 											default:
 												break;
 										}
-										$('.datail table').append(text2);
+										$('.detail table').append(text2);
 									});
 								});
 							});
