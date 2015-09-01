@@ -281,15 +281,19 @@ $(document).ready(function(){
 	//});	
 	//드롭시 이벤트 설정
 	$('.garbage').droppable({
-		accept:".inputContent, .outputContent",
+		accept:".outputContent, .inputContent",
 		tolerance:"touch",
 		drop:function(){
+			$sc.removeClass(".outputBoxOver");
 			$sc.remove();
+			
 		}
 	});
 	$('.sidebar').droppable({
-		accept:".inputContent, .outputContent",
+		accept:".outputContent, .inputContent",
+		tolerance:"touch",
 		drop:function(){
+	
 			$sc.remove();
 		}
 	});
