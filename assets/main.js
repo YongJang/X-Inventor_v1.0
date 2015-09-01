@@ -284,16 +284,13 @@ $(document).ready(function(){
 		accept:".outputContent, .inputContent",
 		tolerance:"touch",
 		drop:function(){
-			$sc.removeClass(".outputBoxOver");
-			$sc.remove();
-			
+			$sc.remove();			
 		}
 	});
 	$('.sidebar').droppable({
 		accept:".outputContent, .inputContent",
 		tolerance:"touch",
-		drop:function(){
-	
+		drop:function(){	
 			$sc.remove();
 		}
 	});
@@ -507,40 +504,43 @@ $(document).ready(function(){
 									}, 175);
 									$sc.remove();
 									outputNum++;
-									$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
-									$('#outputID'+outputNum).css('position','fixed');
-									$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
-									$("#outputID"+outputNum).draggable({
-										containment:'document',
-										snap:'.outputContent',
-										snapMode:'outer',
-										start:function(event){
-											$('.garbage').animate({
-												top: "0px"
-											}, 175);
-											$('.board').animate({
-												top: "50px"
-											}, 175);
-											contents = $(this).text();
-											$sc=$(this);
-										},
-										drag:function(event){
-											mouseY = event.pageY;//-offset.top;
-											if(mouseY<100){
-												$('.garbage').css({'height':50+(100-mouseY)+'px'});
-											}else{
-												$('.garbage').css({'height':50+'px'});
+									$(document).on('hover', '.board', function(){
+										$("#draw").append("<div id = 'outputID"+outputNum+"' class='outputContent'>"+contents+"</div>");								
+										$('#outputID'+outputNum).css('position','fixed');
+										$('#outputID'+outputNum).css({'left':(mouseX-mouseBoxX)+'px', 'top':mouseY-mouseBoxY+'px'});
+										$("#outputID"+outputNum).draggable({
+											containment:'document',
+											snap:'.outputContent',
+											snapMode:'outer',
+											start:function(event){
+												$('.garbage').animate({
+													top: "0px"
+												}, 175);
+												$('.board').animate({
+													top: "50px"
+												}, 175);
+												contents = $(this).text();
+												$sc=$(this);
+											},
+											drag:function(event){
+												mouseY = event.pageY;//-offset.top;
+												if(mouseY<100){
+													$('.garbage').css({'height':50+(100-mouseY)+'px'});
+												}else{
+													$('.garbage').css({'height':50+'px'});
+												}
+											},
+											stop:function(){
+												$('.garbage').animate({
+													top: "-50px",
+													height: "50px"
+												}, 175);
+												$('.board').animate({
+													top: "0px"
+												}, 175);
 											}
-										},
-										stop:function(){
-											$('.garbage').animate({
-												top: "-50px",
-												height: "50px"
-											}, 175);
-											$('.board').animate({
-												top: "0px"
-											}, 175);
-										}
+									});
+									
 									});
 									outputNum++;
 								}
