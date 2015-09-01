@@ -173,7 +173,7 @@ $(document).ready(function(){
 		}else if(text === "Sound"){
 			return "<tr>										<th><label>| Detecting loudness</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>dB</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Loudness resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>dB</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Detecting frequency</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>Hz</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Detecting resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>Hz</span>                        	    			</div>										</td>									</tr>";		
 		}else if(text === "Time"){
-			return "<tr>										<th><label>| Detecting time</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>min</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Time resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>min</span>                        	    			</div>										</td>									</tr>";
+			return "<tr>										<th><label>| Detecting time</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>min</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Time resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>min</span>                        	    			</div>										</td>									</tr><tr>								<th class='selector2' colspan='2'>											<div class='control-group' style='text-align:center;'><label class='radio-inline'><input type='radio' name='selTime' value='0'>Current</label><label class='radio-inline'><input type='radio' name='selTime' value='1'>Custom</label>                						</div>	</th>	</tr>";
 		}else if(text === "Rotation"){
 			return "<tr>										<th><label>| Detecting angle</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>º</span>                        	    			</div>										</td>									</tr>									<tr>										<th><label>| Angle resolution</label></th>										<td class='selector'>											<div class='input-group input-group-lg'>											<input name='length' type='text' class='form-control' placeholder='0'>                        	    			<span class='input-group-addon'>º</span>                        	    			</div>										</td>									</tr>";
 		}else if(text === "Color"){
@@ -250,6 +250,13 @@ $(document).ready(function(){
 		draggableString+=', '+draggableArray[i];
 	}
 	
+	var sel  = document.getElementsByName("selTime");
+	sel[0]=true;
+		if(sel[0] == true)
+			sel[1] == false;
+		else
+			sel[0] ==false;
+		
 	$('.detail').draggable({
 		containment:'document'
 	});

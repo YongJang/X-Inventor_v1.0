@@ -160,6 +160,10 @@ body{font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-si
 	height: 50px;
 	font-size: 1em;
 }
+.selector2{
+	height: 50px;
+	font-size: 1em;
+}
 .inputContent:hover,
 .outputContent:hover{
 	cursor: pointer;
