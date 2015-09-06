@@ -3,42 +3,14 @@
 <head>
 <meta charset="EUC-KR">
 <script type="text/javascript" src="./assets/simulate.js"></script>
-<!-- vertex shader -->
-<script id="3d-vertex-shader" type="x-shader/x-vertex">
-attribute vec4 a_position;
-attribute vec4 a_color;
-
-uniform mat4 u_matrix;
-
-varying vec4 v_color;
-
-void main() {
-  // Multiply the position by the matrix.
-  gl_Position = u_matrix * a_position;
-
-  // Pass the color to the fragment shader.
-  v_color = a_color;
-}
-</script>
-<!-- fragment shader -->
-<script id="3d-fragment-shader" type="x-shader/x-fragment">
-precision mediump float;
-
-// Passed in from the vertex shader.
-varying vec4 v_color;
-
-void main() {
-   gl_FragColor = v_color;
-}
-</script>
 <title>Insert title here</title>
 </head>
-<body onload="start()">	<!--  WebGL ÄÁÅØ½ºÆ®¸¦ ÃÊ±âÈ­ ÇÏ´Â onload ÀÌº¥Æ® ÇÚµé·¯ ÁöÁ¤ -->
+<body onload="start()">	<!--  WebGL ì»¨í…ìŠ¤íŠ¸ë¥¼ ì´ˆê¸°í™” í•˜ëŠ” onload ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ì§€ì • -->
 	<h1>Simulating page.</h1>
 	<div class="description">
 don't do this!
 </div>
-  <canvas id="canvas" width="640" height="480">
+  <canvas id="glcanvas" width="640" height="480">
     Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
   </canvas>
 </body>
