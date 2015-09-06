@@ -250,16 +250,18 @@ $(document).ready(function(){
 		draggableString+=', '+draggableArray[i];
 	}
 	
+	// Time item의  select radio button 선택 이벤트
 	var sel  = document.getElementsByName("selTime");
-	sel[0]=true;
 		if(sel[0] == true)
 			sel[1] == false;
 		else
 			sel[0] ==false;
-		
+	
+	//detail division에 dragable 속성 부여
 	$('.detail').draggable({
 		containment:'document'
 	});
+	
 	//드래그시 이벤트 설정
 	$('.item').draggable({
 		//cursorAt:{top:-2,left:-2},
@@ -270,22 +272,20 @@ $(document).ready(function(){
 			$sc=$(this);
 		},
 		stack:".board",
+		// input Item, output Item을 드래그하는 동안 페이지 전체 내에서의 마우스 위치 좌표 인식
 		drag:function(event){
 			mouseX = event.pageX;//-offset.left;
 			mouseY = event.pageY;//-offset.top;
-			$(".input, .output").mousemove(function(event,position){
-				var offset = $(this).offset();
-				mouseBoxX=event.pageX-offset.left;
-				mouseBoxY=event.pageY-offset.top;
-			});
 		}
 	});
-	//마우스 좌표 인식
-	//$('document').mousemove(function(event,position){
-		//var offset = $(this).offset();
-		//mouseX = event.pageX;//-offset.left;
-		//mouseY = event.pageY;//-offset.top;
-	//});	
+	
+	//input Item, output Item 박스 내에서의 마우스 좌표 인식
+	$(document).on('mousemove', '.input, .output', function(event,position){
+		var offset = $(this).offset();
+		mouseBoxX=event.pageX-offset.left;
+		mouseBoxY=event.pageY-offset.top;
+	});
+	
 	//드롭시 이벤트 설정
 	$('.garbage').droppable({
 		accept:".outputContent, .inputContent",
@@ -294,6 +294,7 @@ $(document).ready(function(){
 			$sc.remove();			
 		}
 	});
+	
 	$('.sidebar').droppable({
 		accept:".outputContent, .inputContent",
 		tolerance:"touch",
